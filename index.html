@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ObnoxiouslyNoxious</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 2px solid #30363d;
+      display: block;
+      margin: 0 auto 1rem;
+      image-rendering: pixelated;
+      object-fit: cover;
+    }
+
+    .header h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #e6edf3;
+      margin-bottom: 0.25rem;
+    }
+
+    .header p {
+      font-size: 0.875rem;
+      color: #8b949e;
+      font-style: italic;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 14px 18px;
+      text-decoration: none;
+      color: #e6edf3;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .link-card:hover {
+      border-color: #58a6ff;
+      background: #1c2128;
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.25rem;
+    }
+
+    .icon-github  { background: #21262d; }
+    .icon-map     { background: #0d2818; }
+    .icon-calcoid { background: #1a1040; }
+    .icon-steam   { background: #1b2838; }
+
+    .card-text { flex: 1; }
+    .card-label { font-size: 12px; color: #8b949e; margin-bottom: 2px; }
+    .card-title { font-size: 15px; font-weight: 500; color: #e6edf3; }
+
+    .arrow {
+      color: #484f58;
+      font-size: 18px;
+      transition: color 0.15s, transform 0.15s;
+    }
+
+    .link-card:hover .arrow {
+      color: #58a6ff;
+      transform: translateX(3px);
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 12px;
+      color: #484f58;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <img class="avatar" src="data:image/png;base64,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" alt="ObnoxiouslyNoxious avatar">
+      <h1>ObnoxiouslyNoxious</h1>
+      <p><i>'Pungent Stench, Potent Code'</i></p>
+    </div>
+
+    <div class="links">
+
+      <a class="link-card" href="https://github.com/obnoxiouslynoxious" target="_blank" rel="noopener">
+        <div class="icon icon-github">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#e6edf3" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+          </svg>
+        </div>
+        <div class="card-text">
+          <div class="card-label">GitHub profile</div>
+          <div class="card-title">ObnoxiouslyNoxious</div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="link-card" href="https://obnoxiouslynoxious.github.io/RSLMapProject" target="_blank" rel="noopener">
+        <div class="icon icon-map">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3fb950" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C8.686 2 6 4.686 6 8c0 5.25 6 13 6 13s6-7.75 6-13c0-3.314-2.686-6-6-6z"/>
+            <circle cx="12" cy="8" r="2.25"/>
+          </svg>
+        </div>
+        <div class="card-text">
+          <div class="card-label">Project</div>
+          <div class="card-title">RSL Map Project</div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="link-card" href="https://obnoxiouslynoxious.github.io/ProjectCalcoid" target="_blank" rel="noopener">
+        <div class="icon icon-calcoid">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a5a0f5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+            <rect x="4" y="4" width="16" height="16" rx="2"/>
+            <line x1="9" y1="9" x2="9" y2="9.01"/>
+            <line x1="12" y1="9" x2="12" y2="9.01"/>
+            <line x1="15" y1="9" x2="15" y2="9.01"/>
+            <line x1="9" y1="12" x2="9" y2="12.01"/>
+            <line x1="12" y1="12" x2="12" y2="12.01"/>
+            <line x1="15" y1="12" x2="15" y2="12.01"/>
+            <line x1="9" y1="15" x2="15" y2="15"/>
+          </svg>
+        </div>
+        <div class="card-text">
+          <div class="card-label">Project</div>
+          <div class="card-title">Project Calcoid</div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+      <a class="link-card" href="https://steamcommunity.com/id/ObnoxiouslyNoxious/myworkshopfiles/?appid=108600" target="_blank" rel="noopener">
+        <div class="icon icon-steam">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#c7d5e0" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10 10 10 0 0 1-9.95-9l3.27 1.35a2.5 2.5 0 0 0 2.45 2 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5h-.11l-3.2-2.3A6 6 0 0 1 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6 6 6 0 0 1-5.38-3.32l-3.28-1.36A10 10 0 0 1 12 2zm-3.5 12a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5zm3.5-7a5 5 0 0 0-4.6 3.06l2.4 1a2.5 2.5 0 0 1 2.2-1.56 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5 2.5 2.5 0 0 1-2.3-1.5l-2.35-.97A5 5 0 0 0 7 12a5 5 0 0 0 5 5 5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/>
+          </svg>
+        </div>
+        <div class="card-text">
+          <div class="card-label">Steam Workshop</div>
+          <div class="card-title">ObnoxiouslyNoxious</div>
+        </div>
+        <span class="arrow">→</span>
+      </a>
+
+    </div>
+
+    <footer><p><i>'COGITO, ERGO OLFACIO'</i></p></footer>
+
+  </div>
+
+</body>
+</html>
