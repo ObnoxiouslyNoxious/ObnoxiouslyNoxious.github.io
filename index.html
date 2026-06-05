@@ -21,7 +21,7 @@
 
     .container {
       width: 100%;
-      max-width: 480px;
+      max-width: 520px;
     }
 
     .header {
@@ -108,6 +108,370 @@
       transform: translateX(3px);
     }
 
+    .gh-card-wrapper {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.15s;
+    }
+
+    .gh-card-wrapper.open { border-color: #58a6ff; }
+
+    .gh-toggle {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #161b22;
+      padding: 14px 18px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+      text-decoration: none;
+      color: #e6edf3;
+    }
+
+    .gh-toggle:hover { background: #1c2128; }
+
+    .gh-toggle .arrow {
+      margin-left: auto;
+      color: #484f58;
+      font-size: 18px;
+      transition: color 0.15s, transform 0.2s;
+    }
+
+    .gh-card-wrapper.open .gh-toggle .arrow {
+      color: #58a6ff;
+      transform: rotate(90deg);
+    }
+
+    .gh-toggle:hover .arrow { color: #58a6ff; }
+
+    .gh-panel {
+      background: #0d1117;
+      border-top: 1px solid #21262d;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .gh-card-wrapper.open .gh-panel { max-height: 600px; }
+
+    .gh-panel-inner {
+      padding: 10px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .gh-profile-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 7px 14px;
+      text-decoration: none;
+      color: #c9d1d9;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: background 0.15s, border-color 0.15s;
+      margin-bottom: 2px;
+    }
+
+    .gh-profile-link:hover {
+      background: #30363d;
+      border-color: #58a6ff;
+      color: #fff;
+    }
+
+    .gh-event {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 12px;
+      color: #8b949e;
+      line-height: 1.4;
+    }
+
+    .gh-event-icon {
+      flex-shrink: 0;
+      margin-top: 1px;
+      opacity: 0.7;
+    }
+
+    .gh-event-text { flex: 1; min-width: 0; }
+    .gh-event-repo { color: #58a6ff; font-weight: 500; }
+    .gh-event-time { font-size: 10px; color: #484f58; margin-top: 2px; }
+
+    .gh-loading {
+      text-align: center;
+      color: #484f58;
+      font-size: 12px;
+      padding: 12px 0;
+    }
+
+    .gh-contrib-graph {
+      width: 100%;
+      border-radius: 6px;
+      display: block;
+      filter: invert(1) hue-rotate(180deg) brightness(0.85);
+    }
+
+    .steam-card-wrapper {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.15s;
+    }
+
+    .steam-card-wrapper.open {
+      border-color: #58a6ff;
+    }
+
+    .steam-toggle {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #161b22;
+      padding: 14px 18px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+    }
+
+    .steam-toggle:hover {
+      background: #1c2128;
+    }
+
+    .steam-toggle .arrow {
+      margin-left: auto;
+      transition: color 0.15s, transform 0.2s;
+    }
+
+    .steam-card-wrapper.open .steam-toggle .arrow {
+      color: #58a6ff;
+      transform: rotate(90deg);
+    }
+
+    .steam-toggle:hover .arrow {
+      color: #58a6ff;
+    }
+
+    .mod-panel {
+      background: #0d1117;
+      border-top: 1px solid #21262d;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s ease;
+    }
+
+    .steam-card-wrapper.open .mod-panel {
+      max-height: 2000px;
+    }
+
+    .mod-panel-inner {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .workshop-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background: #1b2838;
+      border: 1px solid #2a475e;
+      border-radius: 8px;
+      padding: 8px 14px;
+      text-decoration: none;
+      color: #c7d5e0;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+      position: relative;
+    }
+
+    .workshop-link:hover {
+      background: #2a475e;
+      border-color: #66c0f4;
+      color: #fff;
+    }
+
+    .workshop-link svg { flex-shrink: 0; }
+
+    .awards-bar {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #1c1a0f;
+      border: 1px solid #4a3f10;
+      border-radius: 8px;
+      padding: 7px 14px;
+      color: #f0c040;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .awards-bar img {
+      width: 22px;
+      height: 22px;
+      image-rendering: auto;
+    }
+
+    .awards-bar-label {
+      color: #8b949e;
+      font-size: 11px;
+      font-weight: 400;
+      margin-left: 2px;
+    }
+
+    .mod-grid-loading {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .mod-skeleton {
+      background: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .mod-skeleton-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background: linear-gradient(90deg,#21262d 25%,#2d333b 50%,#21262d 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.2s infinite;
+    }
+
+    .mod-skeleton-body { padding: 8px; }
+
+    .mod-skeleton-line {
+      height: 9px;
+      border-radius: 4px;
+      background: linear-gradient(90deg,#21262d 25%,#2d333b 50%,#21262d 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.2s infinite;
+      margin-bottom: 5px;
+    }
+
+    .mod-skeleton-line.short { width: 60%; }
+
+    .mod-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .mod-card {
+      display: flex;
+      flex-direction: column;
+      background: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #e6edf3;
+      overflow: hidden;
+      transition: border-color 0.15s, background 0.15s, transform 0.15s;
+    }
+
+    .mod-card:hover {
+      border-color: #4d9de0;
+      background: #1c2128;
+      transform: translateY(-2px);
+    }
+
+    .mod-thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      background: #21262d;
+    }
+
+    .mod-body {
+      padding: 8px 8px 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      flex: 1;
+      text-align: center;
+    }
+
+    .mod-name {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #e6edf3;
+      line-height: 1.3;
+      min-height: 2.6em;
+    }
+
+    .mod-tag {
+      font-size: 9.5px;
+      color: #8b949e;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    
+    .mod-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px 6px;
+      margin-top: 5px;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      font-size: 10px;
+      color: #8b949e;
+    }
+
+    .stat svg { flex-shrink: 0; }
+
+    .stat-val {
+      color: #c9d1d9;
+      font-weight: 500;
+    }
+
+    .stat-val.loading {
+      display: inline-block;
+      width: 26px;
+      height: 8px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #21262d 25%, #30363d 50%, #21262d 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.2s infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
     footer {
       margin-top: 2.5rem;
       text-align: center;
@@ -128,18 +492,30 @@
 
     <div class="links">
 
-      <a class="link-card" href="https://github.com/obnoxiouslynoxious" target="_blank" rel="noopener">
-        <div class="icon icon-github">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#e6edf3" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
-          </svg>
+      <div class="gh-card-wrapper" id="ghWrapper">
+        <div class="gh-toggle" id="ghToggle">
+          <div class="icon icon-github"><svg width="22" height="22" viewBox="0 0 24 24" fill="#e6edf3" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg></div>
+          <div class="card-text">
+            <div class="card-label">GitHub</div>
+            <div class="card-title">ObnoxiouslyNoxious</div>
+          </div>
+          <span class="arrow">→</span>
         </div>
-        <div class="card-text">
-          <div class="card-label">GitHub</div>
-          <div class="card-title">ObnoxiouslyNoxious</div>
+
+        <div class="gh-panel" id="ghPanel">
+          <div class="gh-panel-inner">
+            <a class="gh-profile-link" href="https://github.com/obnoxiouslynoxious" target="_blank" rel="noopener">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="#e6edf3" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              View GitHub Profile
+            </a>
+            <img
+              class="gh-contrib-graph"
+              src="https://ghchart.rshah.org/3fb950/obnoxiouslynoxious"
+              alt="ObnoxiouslyNoxious GitHub contribution graph"
+              loading="lazy">
+          </div>
         </div>
-        <span class="arrow">→</span>
-      </a>
+      </div>
 
       <a class="link-card" href="https://obnoxiouslynoxious.github.io/RSLMapProject" target="_blank" rel="noopener">
         <div class="icon icon-map">
@@ -149,7 +525,7 @@
           </svg>
         </div>
         <div class="card-text">
-          <div class="card-label">Project Zomboid</div>
+          <div class="card-label">Project Zomboid Tools</div>
           <div class="card-title">Random Spawn Locations Map Project</div>
         </div>
         <span class="arrow">→</span>
@@ -169,24 +545,131 @@
           </svg>
         </div>
         <div class="card-text">
-          <div class="card-label">Project Zomboid</div>
+          <div class="card-label">Project Zomboid Tools</div>
           <div class="card-title">Project Calcoid (Coords Converter)</div>
         </div>
         <span class="arrow">→</span>
       </a>
 
-      <a class="link-card" href="https://steamcommunity.com/id/ObnoxiouslyNoxious/myworkshopfiles/?appid=108600" target="_blank" rel="noopener">
-        <div class="icon icon-steam">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="#c7d5e0" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10 10 10 0 0 1-9.95-9l3.27 1.35a2.5 2.5 0 0 0 2.45 2 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5h-.11l-3.2-2.3A6 6 0 0 1 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6 6 6 0 0 1-5.38-3.32l-3.28-1.36A10 10 0 0 1 12 2zm-3.5 12a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5zm3.5-7a5 5 0 0 0-4.6 3.06l2.4 1a2.5 2.5 0 0 1 2.2-1.56 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5 2.5 2.5 0 0 1-2.3-1.5l-2.35-.97A5 5 0 0 0 7 12a5 5 0 0 0 5 5 5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/>
-          </svg>
+      <div class="steam-card-wrapper" id="steamWrapper">
+        <div class="steam-toggle" id="steamToggle">
+          <div class="icon icon-steam">
+            <img src="img/steam.png" width="22" height="22" style="object-fit:contain;">
+          </div>
+          <div class="card-text">
+            <div class="card-label">Steam Workshop</div>
+            <div class="card-title">ObnoxiouslyNoxious</div>
+          </div>
+          <span class="arrow">→</span>
         </div>
-        <div class="card-text">
-          <div class="card-label">Steam Workshop</div>
-          <div class="card-title">ObnoxiouslyNoxious</div>
+
+        <div class="mod-panel" id="modPanel">
+          <div class="mod-panel-inner">
+
+            <a class="workshop-link" href="https://steamcommunity.com/id/ObnoxiouslyNoxious/myworkshopfiles/?appid=108600" target="_blank" rel="noopener">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#c7d5e0"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10 10 10 0 0 1-9.95-9l3.27 1.35a2.5 2.5 0 0 0 2.45 2 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5h-.11l-3.2-2.3A6 6 0 0 1 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6 6 6 0 0 1-5.38-3.32l-3.28-1.36A10 10 0 0 1 12 2zm-3.5 12a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5zm3.5-7a5 5 0 0 0-4.6 3.06l2.4 1a2.5 2.5 0 0 1 2.2-1.56 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5 2.5 2.5 0 0 1-2.3-1.5l-2.35-.97A5 5 0 0 0 7 12a5 5 0 0 0 5 5 5 5 0 0 0 5-5 5 5 0 0 0-5-5z"/></svg>
+              View Full Workshop Page
+            </a>
+
+            <div class="awards-bar" id="awardsBar">
+              <img src="https://store.fastly.steamstatic.com/public/images/loyalty/reactions/still/30.png" alt="Steam Award">
+              <span id="awardsCount">0</span>
+              <span class="awards-bar-label">Total Awards Received</span>
+            </div>
+
+            <div class="mod-grid-loading" id="modGridLoading">
+              <div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div>
+            </div>
+            <div class="mod-grid" id="modGrid" style="display:none;">
+              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3737205872" target="_blank" rel="noopener" data-id="3737205872">
+                <img class="mod-thumb" src="img/auto-drink.png" alt="Auto-Drink Revert" loading="lazy">
+                <div class="mod-body">
+                  <div class="mod-name">Auto-Drink Revert</div>
+                  <div class="mod-tag">B42.19+ · SP/MP</div>
+                  <div class="mod-stats">
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                  </div>
+                </div>
+              </a>
+              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3736268686" target="_blank" rel="noopener" data-id="3736268686">
+                <img class="mod-thumb" src="img/skill-master.png" alt="Skill Master" loading="lazy">
+                <div class="mod-body">
+                  <div class="mod-name">Skill Master</div>
+                  <div class="mod-tag">B42 · SP/MP</div>
+                  <div class="mod-stats">
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                  </div>
+                </div>
+              </a>
+              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3733578471" target="_blank" rel="noopener" data-id="3733578471">
+                <img class="mod-thumb" src="img/aebs.png" alt="AEBS Imperial &amp; Metric Display" loading="lazy">
+                <div class="mod-body">
+                  <div class="mod-name">AEBS Imperial &amp; Metric Display</div>
+                  <div class="mod-tag">B42 · MP</div>
+                  <div class="mod-stats">
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                  </div>
+                </div>
+              </a>
+              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3730705272" target="_blank" rel="noopener" data-id="3730705272">
+                <img class="mod-thumb" src="img/random-spawn.png" alt="Random Spawn Locations" loading="lazy">
+                <div class="mod-body">
+                  <div class="mod-name">Random Spawn Locations</div>
+                  <div class="mod-tag">B42 · MP</div>
+                  <div class="mod-stats">
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                  </div>
+                </div>
+              </a>
+              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3728443049" target="_blank" rel="noopener" data-id="3728443049">
+                <img class="mod-thumb" src="img/smokes.png" alt="Zombies Have Smokes" loading="lazy">
+                <div class="mod-body">
+                  <div class="mod-name">Zombies Have Smokes</div>
+                  <div class="mod-tag">B42 · SP/MP</div>
+                  <div class="mod-stats">
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                  </div>
+                </div>
+              </a>
+              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3728283972" target="_blank" rel="noopener" data-id="3728283972">
+                <img class="mod-thumb" src="img/ammo.png" alt="Zombies Have Ammo" loading="lazy">
+                <div class="mod-body">
+                  <div class="mod-name">Zombies Have Ammo</div>
+                  <div class="mod-tag">B42 · SP/MP</div>
+                  <div class="mod-stats">
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                  </div>
+                </div>
+              </a>
+              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3728275018" target="_blank" rel="noopener" data-id="3728275018">
+                <img class="mod-thumb" src="img/money.png" alt="Zombies Have Money" loading="lazy">
+                <div class="mod-body">
+                  <div class="mod-name">Zombies Have Money</div>
+                  <div class="mod-tag">B42 · SP/MP</div>
+                  <div class="mod-stats">
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+          </div>
         </div>
-        <span class="arrow">→</span>
-      </a>
+      </div>
 
     </div>
 
@@ -194,5 +677,211 @@
 
   </div>
 
+  <script>
+    const WORKER_URL = 'https://steam-stats-proxy.obnoxiouslynoxious.workers.dev';
+
+    function fmt(n) {
+      n = parseInt(n, 10);
+      if (isNaN(n) || n < 0) return '0';
+      if (n >= 1000) return (n / 1000).toFixed(n >= 10000 ? 0 : 1).replace(/\.0$/, '') + 'k';
+      return n.toString();
+    }
+
+    
+    const steamWrapper = document.getElementById('steamWrapper');
+    const steamToggle  = document.getElementById('steamToggle');
+    let steamFetched   = false;
+
+    steamToggle.addEventListener('click', () => {
+      steamWrapper.classList.toggle('open');
+      if (steamWrapper.classList.contains('open') && !steamFetched) {
+        steamFetched = true;
+        fetchMods();
+      }
+    });
+
+    async function fetchMods() {
+      try {
+        const res  = await fetch(WORKER_URL + '/mods');
+        const data = await res.json();
+        renderMods(data.mods ?? []);
+      } catch (e) {
+        renderMods([]);
+      }
+    }
+
+    function renderMods(mods) {
+      const grid    = document.getElementById('modGrid');
+      const loading = document.getElementById('modGridLoading');
+      const awardsBar   = document.getElementById('awardsBar');
+      const awardsCount = document.getElementById('awardsCount');
+
+      if (!mods.length) {
+        loading.innerHTML = '<div style="text-align:center;color:#484f58;font-size:12px;padding:12px">Could not load mods</div>';
+        return;
+      }
+
+      let totalAwards = 0;
+
+      grid.innerHTML = mods.map(mod => {
+        totalAwards += parseInt(mod.awards ?? 0, 10);
+        return `
+          <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=${mod.id}" target="_blank" rel="noopener">
+            <img class="mod-thumb" src="img/${slugify(mod.name)}.png" alt="${mod.name}"
+                 loading="lazy" onerror="this.style.background='#21262d';this.removeAttribute('src')">
+            <div class="mod-body">
+              <div class="mod-name">${mod.name}</div>
+              <div class="mod-stats">
+                <span class="stat" title="Unique Visitors">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <span class="stat-val">${fmt(mod.views)}</span>
+                </span>
+                <span class="stat" title="Subscribers">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <span class="stat-val">${fmt(mod.subscriptions)}</span>
+                </span>
+                <span class="stat" title="Favourites">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <span class="stat-val">${fmt(mod.favorited)}</span>
+                </span>
+                <span class="stat" title="Likes (Ratings)">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                  <span class="stat-val">${fmt(mod.votes_up)}</span>
+                </span>
+              </div>
+            </div>
+          </a>`;
+      }).join('');
+
+      loading.style.display = 'none';
+      grid.style.display    = 'grid';
+
+      if (awardsBar && awardsCount && totalAwards > 0) {
+        awardsCount.textContent = totalAwards;
+        awardsBar.style.display = 'flex';
+      }
+    }
+
+    
+    const NAME_TO_SLUG = {
+      '[b42.19+] auto-drink revert [sp/mp]': 'auto-drink',
+      '[b42] skill master [sp/mp]':          'skill-master',
+      '[b42] aebs imperial & metric display [mp]': 'aebs',
+      '[b42] random spawn locations [mp]':   'random-spawn',
+      '[b42] zombies have smokes [sp/mp]':   'smokes',
+      '[b42] zombies have ammo [sp/mp]':     'ammo',
+      '[b42] zombies have money [sp/mp]':    'money',
+    };
+
+    function slugify(name) {
+      return NAME_TO_SLUG[name.toLowerCase()] ?? name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    }
+
+    const ghWrapper = document.getElementById('ghWrapper');
+    const ghToggle  = document.getElementById('ghToggle');
+    ghToggle.addEventListener('click', () => ghWrapper.classList.toggle('open'));
+
+    async function buildContribGraph() {
+      const wrap  = document.getElementById('ghGraphWrap');
+      const total = document.getElementById('ghGraphTotal');
+      const COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
+      const CELL = 11, GAP = 2, STEP = CELL + GAP;
+      const DAYS = 365;
+
+      let events = [];
+      try {
+        const pages = await Promise.all([1,2,3].map(p =>
+          fetch(`https://api.github.com/users/obnoxiouslynoxious/events/public?per_page=100&page=${p}`)
+            .then(r => r.ok ? r.json() : [])
+            .catch(() => [])
+        ));
+        events = pages.flat();
+      } catch(_) {}
+
+      
+      const counts = {};
+      events.forEach(e => {
+        const d = e.created_at?.slice(0, 10);
+        if (d) counts[d] = (counts[d] || 0) + 1;
+      });
+
+      
+      const days = [];
+      const now = new Date();
+      for (let i = DAYS - 1; i >= 0; i--) {
+        const d = new Date(now);
+        d.setDate(d.getDate() - i);
+        days.push(d.toISOString().slice(0, 10));
+      }
+
+      
+      const firstDow = new Date(days[0]).getDay();
+      const padded = Array(firstDow).fill(null).concat(days);
+
+      
+      const weeks = [];
+      for (let i = 0; i < padded.length; i += 7) {
+        weeks.push(padded.slice(i, i + 7));
+      }
+
+      const totalContribs = Object.values(counts).reduce((a, b) => a + b, 0);
+      const maxCount = Math.max(...Object.values(counts), 1);
+
+      function level(n) {
+        if (!n) return 0;
+        const r = n / maxCount;
+        if (r < 0.15) return 1;
+        if (r < 0.40) return 2;
+        if (r < 0.70) return 3;
+        return 4;
+      }
+
+      
+      const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      const monthPositions = [];
+      let lastMonth = -1;
+      weeks.forEach((week, wi) => {
+        const firstReal = week.find(d => d !== null);
+        if (firstReal) {
+          const m = new Date(firstReal).getMonth();
+          if (m !== lastMonth) { monthPositions.push({ wi, label: monthNames[m] }); lastMonth = m; }
+        }
+      });
+
+      const svgW = weeks.length * STEP + 30; 
+      const svgH = 7 * STEP + 24;            
+
+      const DAY_LABELS = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
+
+      let svgContent = `<svg class="gh-graph-svg" viewBox="0 0 ${svgW} ${svgH}" xmlns="http://www.w3.org/2000/svg" style="font-family:-apple-system,sans-serif">`;
+
+      
+      monthPositions.forEach(({ wi, label }) => {
+        svgContent += `<text x="${30 + wi * STEP}" y="10" font-size="9" fill="#8b949e">${label}</text>`;
+      });
+
+      
+      DAY_LABELS.forEach((label, i) => {
+        if (label) svgContent += `<text x="0" y="${20 + i * STEP + CELL * 0.8}" font-size="9" fill="#8b949e">${label}</text>`;
+      });
+
+      
+      weeks.forEach((week, wi) => {
+        week.forEach((date, di) => {
+          if (date === null) return;
+          const c = counts[date] || 0;
+          const color = COLORS[level(c)];
+          const x = 30 + wi * STEP;
+          const y = 18 + di * STEP;
+          const title = c ? `${c} contribution${c !== 1 ? 's' : ''} on ${date}` : `No contributions on ${date}`;
+          svgContent += `<rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="2" fill="${color}" stroke="#1b1f23" stroke-width="0.5"><title>${title}</title></rect>`;
+        });
+      });
+
+      svgContent += '</svg>';
+      wrap.innerHTML = svgContent;
+      total.textContent = `${totalContribs} contributions in the last year`;
+    }
+  </script>
 </body>
 </html>
