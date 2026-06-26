@@ -472,6 +472,176 @@
       100% { background-position: -200% 0; }
     }
 
+    /* About Me expandable card */
+    .about-card-wrapper {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.15s;
+      margin-bottom: 10px;
+    }
+
+    .about-card-wrapper.open { border-color: #58a6ff; }
+
+    .about-toggle {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #161b22;
+      padding: 14px 18px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+    }
+
+    .about-toggle:hover { background: #1c2128; }
+
+    .about-toggle .arrow {
+      margin-left: auto;
+      color: #484f58;
+      font-size: 18px;
+      transition: color 0.15s, transform 0.2s;
+    }
+
+    .about-card-wrapper.open .about-toggle .arrow {
+      color: #58a6ff;
+      transform: rotate(90deg);
+    }
+
+    .about-toggle:hover .arrow { color: #58a6ff; }
+
+    .about-panel {
+      background: #0d1117;
+      border-top: 1px solid #21262d;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .about-card-wrapper.open .about-panel { max-height: 400px; }
+
+    .about-panel-inner {
+      padding: 16px;
+      font-size: 13px;
+      color: #8b949e;
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .about-panel-inner::before {
+      content: '\201C';
+      font-size: 2rem;
+      color: #30363d;
+      line-height: 0;
+      vertical-align: -0.5rem;
+      margin-right: 4px;
+    }
+
+    .about-panel-inner::after {
+      content: '\201D';
+      font-size: 2rem;
+      color: #30363d;
+      line-height: 0;
+      vertical-align: -0.5rem;
+      margin-left: 4px;
+    }
+
+    /* Contact section */
+    .contact-card-wrapper {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.15s;
+      margin-top: 10px;
+    }
+
+    .contact-card-wrapper.open { border-color: #58a6ff; }
+
+    .contact-toggle {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #161b22;
+      padding: 14px 18px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+    }
+
+    .contact-toggle:hover { background: #1c2128; }
+
+    .contact-toggle .arrow {
+      margin-left: auto;
+      color: #484f58;
+      font-size: 18px;
+      transition: color 0.15s, transform 0.2s;
+    }
+
+    .contact-card-wrapper.open .contact-toggle .arrow {
+      color: #58a6ff;
+      transform: rotate(90deg);
+    }
+
+    .contact-toggle:hover .arrow { color: #58a6ff; }
+
+    .contact-panel {
+      background: #0d1117;
+      border-top: 1px solid #21262d;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .contact-card-wrapper.open .contact-panel { max-height: 200px; }
+
+    .contact-panel-inner {
+      padding: 10px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #161b22;
+      border: 1px solid #21262d;
+      border-radius: 9px;
+      padding: 10px 14px;
+      text-decoration: none;
+      color: #e6edf3;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .contact-link:hover {
+      border-color: #58a6ff;
+      background: #1c2128;
+    }
+
+    .contact-link img { border-radius: 6px; }
+
+    .contact-link-label {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .contact-link .arrow {
+      margin-left: auto;
+      color: #484f58;
+      font-size: 16px;
+      transition: color 0.15s, transform 0.15s;
+    }
+
+    .contact-link:hover .arrow {
+      color: #58a6ff;
+      transform: translateX(3px);
+    }
+
     footer {
       margin-top: 2.5rem;
       text-align: center;
@@ -488,6 +658,20 @@
       <img class="avatar" src="data:image/png;base64,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" alt="ObnoxiouslyNoxious avatar">
       <h1>ObnoxiouslyNoxious</h1>
       <p><i>'Pungent Stench, Potent Code'</i></p>
+    </div>
+
+    <div class="about-card-wrapper" id="aboutWrapper">
+      <div class="about-toggle" id="aboutToggle">
+        <img src="img/obnox.png" width="42" height="42" alt="About" style="border-radius:10px;object-fit:cover;">
+        <div class="card-text">
+          <div class="card-label">About</div>
+          <div class="card-title">ObnoxiouslyNoxious</div>
+        </div>
+        <span class="arrow">→</span>
+      </div>
+      <div class="about-panel" id="aboutPanel">
+        <div class="about-panel-inner" style="text-align:center;">People seem convinced I'm an overweight, unshowered degenerate who spends most of my time writing Project Zomboid Mods and festering in a basement. But the truth is, my house doesn't even have a basement.</div>
+      </div>
     </div>
 
     <div class="links">
@@ -685,6 +869,33 @@
 
     </div>
 
+    <div class="contact-card-wrapper" id="contactWrapper">
+      <div class="contact-toggle" id="contactToggle">
+        <div class="icon" style="background:#21262d;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        </div>
+        <div class="card-text">
+          <div class="card-label">Collaborations / Commissions / Feedback</div>
+          <div class="card-title">Contact</div>
+        </div>
+        <span class="arrow">→</span>
+      </div>
+      <div class="contact-panel" id="contactPanel">
+        <div class="contact-panel-inner">
+          <a class="contact-link" href="https://discord.gg/invite/yYB4EDxm2h" target="_blank" rel="noopener">
+            <img src="img/discord.png" width="32" height="32" alt="Discord" style="border-radius:6px;">
+            <span class="contact-link-label">Discord</span>
+            <span class="arrow">→</span>
+          </a>
+          <a class="contact-link" href="mailto:cogito.ergo.olfacio@gmail.com">
+            <img src="img/email.png" width="32" height="32" alt="Email" style="border-radius:6px;">
+            <span class="contact-link-label">Email</span>
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <footer><p><i>'COGITO, ERGO OLFACIO'</i></p></footer>
 
   </div>
@@ -789,6 +1000,14 @@
     function slugify(name) {
       return NAME_TO_SLUG[name.toLowerCase()] ?? name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
     }
+
+    const aboutWrapper = document.getElementById('aboutWrapper');
+    const aboutToggle  = document.getElementById('aboutToggle');
+    aboutToggle.addEventListener('click', () => aboutWrapper.classList.toggle('open'));
+
+    const contactWrapper = document.getElementById('contactWrapper');
+    const contactToggle  = document.getElementById('contactToggle');
+    contactToggle.addEventListener('click', () => contactWrapper.classList.toggle('open'));
 
     const ghWrapper = document.getElementById('ghWrapper');
     const ghToggle  = document.getElementById('ghToggle');
