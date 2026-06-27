@@ -353,6 +353,33 @@
       margin-left: 2px;
     }
 
+    .stats-bar {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      background: #161616;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 12px;
+      color: #888888;
+      text-transform: uppercase;
+    }
+
+    .stats-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .stats-bar-item svg { flex-shrink: 0; }
+
+    .stats-bar-val {
+      color: #e0e0e0;
+      font-weight: 600;
+    }
+
     .mod-grid-loading {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -907,6 +934,25 @@
               <span class="awards-bar-label">Total Awards Received</span>
             </div>
 
+            <div class="stats-bar" id="statsBar">
+              <span class="stats-bar-item" title="Total Views">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                <span class="stats-bar-val" id="totalViews">0</span> Views
+              </span>
+              <span class="stats-bar-item" title="Total Subscribers">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span class="stats-bar-val" id="totalSubs">0</span> Subs
+              </span>
+              <span class="stats-bar-item" title="Total Favourites">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                <span class="stats-bar-val" id="totalFavs">0</span> Favs
+              </span>
+              <span class="stats-bar-item" title="Total Likes">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                <span class="stats-bar-val" id="totalLikes">0</span> Likes
+              </span>
+            </div>
+
             <div class="mod-grid-loading" id="modGridLoading">
               <div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div>
             </div>
@@ -1165,9 +1211,17 @@
       }
 
       let totalAwards = 0;
+      let totalViews = 0;
+      let totalSubs = 0;
+      let totalFavs = 0;
+      let totalLikes = 0;
 
       grid.innerHTML = mods.map(mod => {
         totalAwards += parseInt(mod.awards ?? 0, 10);
+        totalViews += parseInt(mod.views ?? 0, 10);
+        totalSubs += parseInt(mod.subscriptions ?? 0, 10);
+        totalFavs += parseInt(mod.favorited ?? 0, 10);
+        totalLikes += parseInt(mod.votes_up ?? 0, 10);
         return `
           <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=${mod.id}" target="_blank" rel="noopener">
             <img class="mod-thumb" src="img/${slugify(mod.name)}.png" alt="${mod.name}"
@@ -1202,6 +1256,15 @@
       if (awardsBar && awardsCount && totalAwards > 0) {
         awardsCount.textContent = totalAwards;
         awardsBar.style.display = 'flex';
+      }
+
+      const statsBar = document.getElementById('statsBar');
+      if (statsBar && mods.length) {
+        document.getElementById('totalViews').textContent = fmt(totalViews);
+        document.getElementById('totalSubs').textContent = fmt(totalSubs);
+        document.getElementById('totalFavs').textContent = fmt(totalFavs);
+        document.getElementById('totalLikes').textContent = fmt(totalLikes);
+        statsBar.style.display = 'flex';
       }
     }
 
