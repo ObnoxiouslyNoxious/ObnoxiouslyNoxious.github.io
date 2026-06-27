@@ -9,8 +9,8 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0d1117;
-      color: #e6edf3;
+      background: #0d0d0d;
+      color: #e0e0e0;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -33,7 +33,7 @@
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      border: 2px solid #30363d;
+      border: 2px solid #2a2a2a;
       display: block;
       margin: 0 auto 1rem;
       image-rendering: pixelated;
@@ -43,13 +43,13 @@
     .header h1 {
       font-size: 1.25rem;
       font-weight: 600;
-      color: #e6edf3;
+      color: #e0e0e0;
       margin-bottom: 0.25rem;
     }
 
     .header p {
       font-size: 0.875rem;
-      color: #8b949e;
+      color: #888888;
       font-style: italic;
     }
 
@@ -63,18 +63,18 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      background: #161b22;
-      border: 1px solid #30363d;
+      background: #161616;
+      border: 1px solid #2a2a2a;
       border-radius: 12px;
       padding: 14px 18px;
       text-decoration: none;
-      color: #e6edf3;
+      color: #e0e0e0;
       transition: border-color 0.15s, background 0.15s;
     }
 
     .link-card:hover {
-      border-color: #58a6ff;
-      background: #1c2128;
+      border-color: #5e5e5e;
+      background: #1c1c1c;
     }
 
     .icon {
@@ -88,69 +88,69 @@
       font-size: 1.25rem;
     }
 
-    .icon-github  { background: #21262d; }
+    .icon-github  { background: #212121; }
     .icon-map     { background: #0d2818; }
     .icon-calcoid { background: #1a1040; }
     .icon-steam   { background: #1b2838; }
 
-    .card-text { flex: 1; }
-    .card-label { font-size: 12px; color: #8b949e; margin-bottom: 2px; }
-    .card-title { font-size: 15px; font-weight: 500; color: #e6edf3; }
+    .card-text { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .card-label { font-size: 12px; color: #888888; margin-bottom: 2px; display: none; }
+    .card-title { font-size: 15px; font-weight: 500; color: #e0e0e0; }
 
     .arrow {
-      color: #484f58;
+      color: #555555;
       font-size: 18px;
       transition: color 0.15s, transform 0.15s;
     }
 
     .link-card:hover .arrow {
-      color: #58a6ff;
+      color: #5e5e5e;
       transform: translateX(3px);
     }
 
     .gh-card-wrapper {
       display: flex;
       flex-direction: column;
-      border: 1px solid #30363d;
+      border: 1px solid #2a2a2a;
       border-radius: 12px;
       overflow: hidden;
       transition: border-color 0.15s;
     }
 
-    .gh-card-wrapper.open { border-color: #58a6ff; }
+    .gh-card-wrapper.open { border-color: #5e5e5e; }
 
     .gh-toggle {
       display: flex;
       align-items: center;
       gap: 14px;
-      background: #161b22;
+      background: #161616;
       padding: 14px 18px;
       cursor: pointer;
       user-select: none;
       transition: background 0.15s;
       text-decoration: none;
-      color: #e6edf3;
+      color: #e0e0e0;
     }
 
-    .gh-toggle:hover { background: #1c2128; }
+    .gh-toggle:hover { background: #1c1c1c; }
 
     .gh-toggle .arrow {
       margin-left: auto;
-      color: #484f58;
+      color: #555555;
       font-size: 18px;
       transition: color 0.15s, transform 0.2s;
     }
 
     .gh-card-wrapper.open .gh-toggle .arrow {
-      color: #58a6ff;
+      color: #5e5e5e;
       transform: rotate(90deg);
     }
 
-    .gh-toggle:hover .arrow { color: #58a6ff; }
+    .gh-toggle:hover .arrow { color: #5e5e5e; }
 
     .gh-panel {
-      background: #0d1117;
-      border-top: 1px solid #21262d;
+      background: #0d0d0d;
+      border-top: 1px solid #212121;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s ease;
@@ -170,12 +170,12 @@
       align-items: center;
       justify-content: center;
       gap: 7px;
-      background: #21262d;
-      border: 1px solid #30363d;
+      background: #212121;
+      border: 1px solid #2a2a2a;
       border-radius: 8px;
       padding: 7px 14px;
       text-decoration: none;
-      color: #c9d1d9;
+      color: #5e5e5e;
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.04em;
@@ -185,8 +185,8 @@
     }
 
     .gh-profile-link:hover {
-      background: #30363d;
-      border-color: #58a6ff;
+      background: #2a2a2a;
+      border-color: #5e5e5e;
       color: #fff;
     }
 
@@ -194,12 +194,12 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      background: #161b22;
-      border: 1px solid #21262d;
+      background: #161616;
+      border: 1px solid #212121;
       border-radius: 8px;
       padding: 8px 10px;
       font-size: 12px;
-      color: #8b949e;
+      color: #888888;
       line-height: 1.4;
     }
 
@@ -210,12 +210,12 @@
     }
 
     .gh-event-text { flex: 1; min-width: 0; }
-    .gh-event-repo { color: #58a6ff; font-weight: 500; }
-    .gh-event-time { font-size: 10px; color: #484f58; margin-top: 2px; }
+    .gh-event-repo { color: #5e5e5e; font-weight: 500; }
+    .gh-event-time { font-size: 10px; color: #555555; margin-top: 2px; }
 
     .gh-loading {
       text-align: center;
-      color: #484f58;
+      color: #555555;
       font-size: 12px;
       padding: 12px 0;
     }
@@ -230,21 +230,21 @@
     .steam-card-wrapper {
       display: flex;
       flex-direction: column;
-      border: 1px solid #30363d;
+      border: 1px solid #2a2a2a;
       border-radius: 12px;
       overflow: hidden;
       transition: border-color 0.15s;
     }
 
     .steam-card-wrapper.open {
-      border-color: #58a6ff;
+      border-color: #5e5e5e;
     }
 
     .steam-toggle {
       display: flex;
       align-items: center;
       gap: 14px;
-      background: #161b22;
+      background: #161616;
       padding: 14px 18px;
       cursor: pointer;
       user-select: none;
@@ -252,7 +252,7 @@
     }
 
     .steam-toggle:hover {
-      background: #1c2128;
+      background: #1c1c1c;
     }
 
     .steam-toggle .arrow {
@@ -261,17 +261,17 @@
     }
 
     .steam-card-wrapper.open .steam-toggle .arrow {
-      color: #58a6ff;
+      color: #5e5e5e;
       transform: rotate(90deg);
     }
 
     .steam-toggle:hover .arrow {
-      color: #58a6ff;
+      color: #5e5e5e;
     }
 
     .mod-panel {
-      background: #0d1117;
-      border-top: 1px solid #21262d;
+      background: #0d0d0d;
+      border-top: 1px solid #212121;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.45s ease;
@@ -293,12 +293,12 @@
       align-items: center;
       justify-content: center;
       gap: 7px;
-      background: #1b2838;
-      border: 1px solid #2a475e;
+      background: #1c1c1c;
+      border: 1px solid #2a2a2a;
       border-radius: 8px;
       padding: 8px 14px;
       text-decoration: none;
-      color: #c7d5e0;
+      color: #c0c0c0;
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.04em;
@@ -308,9 +308,9 @@
     }
 
     .workshop-link:hover {
-      background: #2a475e;
-      border-color: #66c0f4;
-      color: #fff;
+      background: #2a2a2a;
+      border-color: #5e5e5e;
+      color: #e0e0e0;
     }
 
     .workshop-link svg { flex-shrink: 0; }
@@ -336,7 +336,7 @@
     }
 
     .awards-bar-label {
-      color: #8b949e;
+      color: #888888;
       font-size: 11px;
       font-weight: 400;
       margin-left: 2px;
@@ -349,8 +349,8 @@
     }
 
     .mod-skeleton {
-      background: #161b22;
-      border: 1px solid #21262d;
+      background: #161616;
+      border: 1px solid #212121;
       border-radius: 10px;
       overflow: hidden;
     }
@@ -358,7 +358,7 @@
     .mod-skeleton-img {
       width: 100%;
       aspect-ratio: 1/1;
-      background: linear-gradient(90deg,#21262d 25%,#2d333b 50%,#21262d 75%);
+      background: linear-gradient(90deg,#212121 25%,#2d2d2d 50%,#212121 75%);
       background-size: 200% 100%;
       animation: shimmer 1.2s infinite;
     }
@@ -368,7 +368,7 @@
     .mod-skeleton-line {
       height: 9px;
       border-radius: 4px;
-      background: linear-gradient(90deg,#21262d 25%,#2d333b 50%,#21262d 75%);
+      background: linear-gradient(90deg,#212121 25%,#2d2d2d 50%,#212121 75%);
       background-size: 200% 100%;
       animation: shimmer 1.2s infinite;
       margin-bottom: 5px;
@@ -385,18 +385,18 @@
     .mod-card {
       display: flex;
       flex-direction: column;
-      background: #161b22;
-      border: 1px solid #21262d;
+      background: #161616;
+      border: 1px solid #212121;
       border-radius: 10px;
       text-decoration: none;
-      color: #e6edf3;
+      color: #e0e0e0;
       overflow: hidden;
       transition: border-color 0.15s, background 0.15s, transform 0.15s;
     }
 
     .mod-card:hover {
       border-color: #4d9de0;
-      background: #1c2128;
+      background: #1c1c1c;
       transform: translateY(-2px);
     }
 
@@ -405,7 +405,7 @@
       aspect-ratio: 1 / 1;
       object-fit: cover;
       display: block;
-      background: #21262d;
+      background: #212121;
     }
 
     .mod-body {
@@ -420,14 +420,14 @@
     .mod-name {
       font-size: 11.5px;
       font-weight: 600;
-      color: #e6edf3;
+      color: #e0e0e0;
       line-height: 1.3;
       min-height: 2.6em;
     }
 
     .mod-tag {
       font-size: 9.5px;
-      color: #8b949e;
+      color: #888888;
       text-transform: uppercase;
       letter-spacing: 0.03em;
     }
@@ -446,13 +446,13 @@
       justify-content: center;
       gap: 4px;
       font-size: 10px;
-      color: #8b949e;
+      color: #888888;
     }
 
     .stat svg { flex-shrink: 0; }
 
     .stat-val {
-      color: #c9d1d9;
+      color: #5e5e5e;
       font-weight: 500;
     }
 
@@ -461,7 +461,7 @@
       width: 26px;
       height: 8px;
       border-radius: 3px;
-      background: linear-gradient(90deg, #21262d 25%, #30363d 50%, #21262d 75%);
+      background: linear-gradient(90deg, #212121 25%, #2a2a2a 50%, #212121 75%);
       background-size: 200% 100%;
       animation: shimmer 1.2s infinite;
       vertical-align: middle;
@@ -476,45 +476,45 @@
     .about-card-wrapper {
       display: flex;
       flex-direction: column;
-      border: 1px solid #30363d;
+      border: 1px solid #2a2a2a;
       border-radius: 12px;
       overflow: hidden;
       transition: border-color 0.15s;
       margin-bottom: 10px;
     }
 
-    .about-card-wrapper.open { border-color: #58a6ff; }
+    .about-card-wrapper.open { border-color: #5e5e5e; }
 
     .about-toggle {
       display: flex;
       align-items: center;
       gap: 14px;
-      background: #161b22;
+      background: #161616;
       padding: 14px 18px;
       cursor: pointer;
       user-select: none;
       transition: background 0.15s;
     }
 
-    .about-toggle:hover { background: #1c2128; }
+    .about-toggle:hover { background: #1c1c1c; }
 
     .about-toggle .arrow {
       margin-left: auto;
-      color: #484f58;
+      color: #555555;
       font-size: 18px;
       transition: color 0.15s, transform 0.2s;
     }
 
     .about-card-wrapper.open .about-toggle .arrow {
-      color: #58a6ff;
+      color: #5e5e5e;
       transform: rotate(90deg);
     }
 
-    .about-toggle:hover .arrow { color: #58a6ff; }
+    .about-toggle:hover .arrow { color: #5e5e5e; }
 
     .about-panel {
-      background: #0d1117;
-      border-top: 1px solid #21262d;
+      background: #0d0d0d;
+      border-top: 1px solid #212121;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s ease;
@@ -525,7 +525,7 @@
     .about-panel-inner {
       padding: 16px;
       font-size: 13px;
-      color: #8b949e;
+      color: #888888;
       line-height: 1.7;
       font-style: italic;
     }
@@ -533,7 +533,7 @@
     .about-panel-inner::before {
       content: '\201C';
       font-size: 2rem;
-      color: #30363d;
+      color: #2a2a2a;
       line-height: 0;
       vertical-align: -0.5rem;
       margin-right: 4px;
@@ -542,7 +542,7 @@
     .about-panel-inner::after {
       content: '\201D';
       font-size: 2rem;
-      color: #30363d;
+      color: #2a2a2a;
       line-height: 0;
       vertical-align: -0.5rem;
       margin-left: 4px;
@@ -552,45 +552,45 @@
     .contact-card-wrapper {
       display: flex;
       flex-direction: column;
-      border: 1px solid #30363d;
+      border: 1px solid #2a2a2a;
       border-radius: 12px;
       overflow: hidden;
       transition: border-color 0.15s;
       margin-top: 10px;
     }
 
-    .contact-card-wrapper.open { border-color: #58a6ff; }
+    .contact-card-wrapper.open { border-color: #5e5e5e; }
 
     .contact-toggle {
       display: flex;
       align-items: center;
       gap: 14px;
-      background: #161b22;
+      background: #161616;
       padding: 14px 18px;
       cursor: pointer;
       user-select: none;
       transition: background 0.15s;
     }
 
-    .contact-toggle:hover { background: #1c2128; }
+    .contact-toggle:hover { background: #1c1c1c; }
 
     .contact-toggle .arrow {
       margin-left: auto;
-      color: #484f58;
+      color: #555555;
       font-size: 18px;
       transition: color 0.15s, transform 0.2s;
     }
 
     .contact-card-wrapper.open .contact-toggle .arrow {
-      color: #58a6ff;
+      color: #5e5e5e;
       transform: rotate(90deg);
     }
 
-    .contact-toggle:hover .arrow { color: #58a6ff; }
+    .contact-toggle:hover .arrow { color: #5e5e5e; }
 
     .contact-panel {
-      background: #0d1117;
-      border-top: 1px solid #21262d;
+      background: #0d0d0d;
+      border-top: 1px solid #212121;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s ease;
@@ -609,18 +609,18 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      background: #161b22;
-      border: 1px solid #21262d;
+      background: #161616;
+      border: 1px solid #212121;
       border-radius: 9px;
       padding: 10px 14px;
       text-decoration: none;
-      color: #e6edf3;
+      color: #e0e0e0;
       transition: border-color 0.15s, background 0.15s;
     }
 
     .contact-link:hover {
-      border-color: #58a6ff;
-      background: #1c2128;
+      border-color: #5e5e5e;
+      background: #1c1c1c;
     }
 
     .contact-link img { border-radius: 6px; }
@@ -632,13 +632,13 @@
 
     .contact-link .arrow {
       margin-left: auto;
-      color: #484f58;
+      color: #555555;
       font-size: 16px;
       transition: color 0.15s, transform 0.15s;
     }
 
     .contact-link:hover .arrow {
-      color: #58a6ff;
+      color: #5e5e5e;
       transform: translateX(3px);
     }
 
@@ -646,45 +646,45 @@
     .support-card-wrapper {
       display: flex;
       flex-direction: column;
-      border: 1px solid #30363d;
+      border: 1px solid #2a2a2a;
       border-radius: 12px;
       overflow: hidden;
       transition: border-color 0.15s;
       margin-top: 10px;
     }
 
-    .support-card-wrapper.open { border-color: #58a6ff; }
+    .support-card-wrapper.open { border-color: #5e5e5e; }
 
     .support-toggle {
       display: flex;
       align-items: center;
       gap: 14px;
-      background: #161b22;
+      background: #161616;
       padding: 14px 18px;
       cursor: pointer;
       user-select: none;
       transition: background 0.15s;
     }
 
-    .support-toggle:hover { background: #1c2128; }
+    .support-toggle:hover { background: #1c1c1c; }
 
     .support-toggle .arrow {
       margin-left: auto;
-      color: #484f58;
+      color: #555555;
       font-size: 18px;
       transition: color 0.15s, transform 0.2s;
     }
 
     .support-card-wrapper.open .support-toggle .arrow {
-      color: #58a6ff;
+      color: #5e5e5e;
       transform: rotate(90deg);
     }
 
-    .support-toggle:hover .arrow { color: #58a6ff; }
+    .support-toggle:hover .arrow { color: #5e5e5e; }
 
     .support-panel {
-      background: #0d1117;
-      border-top: 1px solid #21262d;
+      background: #0d0d0d;
+      border-top: 1px solid #212121;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.4s ease;
@@ -703,18 +703,18 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      background: #161b22;
-      border: 1px solid #21262d;
+      background: #161616;
+      border: 1px solid #212121;
       border-radius: 9px;
       padding: 10px 14px;
       text-decoration: none;
-      color: #e6edf3;
+      color: #e0e0e0;
       transition: border-color 0.15s, background 0.15s;
     }
 
     .support-link:hover {
-      border-color: #58a6ff;
-      background: #1c2128;
+      border-color: #5e5e5e;
+      background: #1c1c1c;
     }
 
     .support-link img { border-radius: 6px; }
@@ -726,28 +726,119 @@
 
     .support-link .arrow {
       margin-left: auto;
-      color: #484f58;
+      color: #555555;
       font-size: 16px;
       transition: color 0.15s, transform 0.15s;
     }
 
     .support-link:hover .arrow {
-      color: #58a6ff;
+      color: #5e5e5e;
       transform: translateX(3px);
     }
 
     .support-subtext {
       font-size: 12px;
-      color: #8b949e;
+      color: #888888;
       font-style: italic;
       padding: 0 4px;
+    }
+
+    /* PZ Tools expandable card */
+    .pz-card-wrapper {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.15s;
+    }
+
+    .pz-card-wrapper.open { border-color: #5e5e5e; }
+
+    .pz-toggle {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #161616;
+      padding: 14px 18px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+    }
+
+    .pz-toggle:hover { background: #1c1c1c; }
+
+    .pz-toggle .arrow {
+      margin-left: auto;
+      color: #555555;
+      font-size: 18px;
+      transition: color 0.15s, transform 0.2s;
+    }
+
+    .pz-card-wrapper.open .pz-toggle .arrow {
+      color: #5e5e5e;
+      transform: rotate(90deg);
+    }
+
+    .pz-toggle:hover .arrow { color: #5e5e5e; }
+
+    .pz-panel {
+      background: #0d0d0d;
+      border-top: 1px solid #212121;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .pz-card-wrapper.open .pz-panel { max-height: 300px; }
+
+    .pz-panel-inner {
+      padding: 10px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .pz-link {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #161616;
+      border: 1px solid #212121;
+      border-radius: 9px;
+      padding: 10px 14px;
+      text-decoration: none;
+      color: #e0e0e0;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .pz-link:hover {
+      border-color: #5e5e5e;
+      background: #1c1c1c;
+    }
+
+    .pz-link-label {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .pz-link .arrow {
+      margin-left: auto;
+      color: #555555;
+      font-size: 16px;
+      transition: color 0.15s, transform 0.15s;
+    }
+
+    .pz-link:hover .arrow {
+      color: #5e5e5e;
+      transform: translateX(3px);
     }
 
     footer {
       margin-top: 2.5rem;
       text-align: center;
       font-size: 12px;
-      color: #484f58;
+      color: #555555;
     }
   </style>
 </head>
@@ -763,10 +854,12 @@
 
     <div class="about-card-wrapper" id="aboutWrapper">
       <div class="about-toggle" id="aboutToggle">
-        <img src="img/obnox.png" width="42" height="42" alt="About" style="border-radius:10px;object-fit:cover;">
+        <div class="icon" style="background:#212121;">
+          <img src="img/obnox.png" width="34" height="34" alt="About" style="object-fit:contain;">
+        </div>
         <div class="card-text">
           <div class="card-label">About</div>
-          <div class="card-title">ObnoxiouslyNoxious</div>
+          <div class="card-title">About</div>
         </div>
         <span class="arrow">→</span>
       </div>
@@ -779,12 +872,12 @@
 
       <div class="steam-card-wrapper" id="steamWrapper">
         <div class="steam-toggle" id="steamToggle">
-          <div class="icon icon-steam">
+          <div class="icon" style="background:#212121;">
             <img src="img/steam.png" width="22" height="22" style="object-fit:contain;">
           </div>
           <div class="card-text">
-            <div class="card-label">Steam Workshop</div>
-            <div class="card-title">ObnoxiouslyNoxious</div>
+            <div class="card-label">Workshop</div>
+            <div class="card-title">Steam Workshop</div>
           </div>
           <span class="arrow">→</span>
         </div>
@@ -793,7 +886,7 @@
           <div class="mod-panel-inner">
 
             <a class="workshop-link" href="https://steamcommunity.com/id/ObnoxiouslyNoxious/myworkshopfiles/?appid=108600" target="_blank" rel="noopener">
-              <img src="img/steam.png" width="14" height="14" style="object-fit:contain;">
+          <img src="img/steam.png" width="20" height="20" style="object-fit:contain;">
               View Full Workshop Page
             </a>
 
@@ -813,9 +906,9 @@
                   <div class="mod-name">Auto-Drink Revert</div>
                   <div class="mod-tag">B42.19+ · SP/MP</div>
                   <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
                   </div>
                 </div>
               </a>
@@ -825,9 +918,9 @@
                   <div class="mod-name">Skill Master</div>
                   <div class="mod-tag">B42 · SP/MP</div>
                   <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
                   </div>
                 </div>
               </a>
@@ -837,9 +930,9 @@
                   <div class="mod-name">AEBS Imperial &amp; Metric Display</div>
                   <div class="mod-tag">B42 · MP</div>
                   <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
                   </div>
                 </div>
               </a>
@@ -849,9 +942,9 @@
                   <div class="mod-name">Random Spawn Locations</div>
                   <div class="mod-tag">B42 · MP</div>
                   <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
                   </div>
                 </div>
               </a>
@@ -861,9 +954,9 @@
                   <div class="mod-name">Zombies Have Smokes</div>
                   <div class="mod-tag">B42 · SP/MP</div>
                   <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
                   </div>
                 </div>
               </a>
@@ -873,9 +966,9 @@
                   <div class="mod-name">Zombies Have Ammo</div>
                   <div class="mod-tag">B42 · SP/MP</div>
                   <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
                   </div>
                 </div>
               </a>
@@ -885,9 +978,9 @@
                   <div class="mod-name">Zombies Have Money</div>
                   <div class="mod-tag">B42 · SP/MP</div>
                   <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
                   </div>
                 </div>
               </a>
@@ -897,9 +990,9 @@
                   <div class="mod-name">Daily Challenges &amp; Leaderboard</div>
                   <div class="mod-tag">B42 · MP</div>
                   <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#8b949e"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
+                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
+                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
+                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
                   </div>
                 </div>
               </a>
@@ -911,10 +1004,10 @@
 
       <div class="gh-card-wrapper" id="ghWrapper">
         <div class="gh-toggle" id="ghToggle">
-          <div class="icon icon-github"><svg width="22" height="22" viewBox="0 0 24 24" fill="#e6edf3" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg></div>
+          <div class="icon icon-github"><svg width="24" height="24" viewBox="0 0 24 24" fill="#e0e0e0" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg></div>
           <div class="card-text">
-            <div class="card-label">GitHub</div>
-            <div class="card-title">ObnoxiouslyNoxious</div>
+            <div class="card-label">Profile</div>
+            <div class="card-title">GitHub</div>
           </div>
           <span class="arrow">→</span>
         </div>
@@ -922,7 +1015,7 @@
         <div class="gh-panel" id="ghPanel">
           <div class="gh-panel-inner">
             <a class="gh-profile-link" href="https://github.com/obnoxiouslynoxious" target="_blank" rel="noopener">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="#e6edf3" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="#e0e0e0" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
               View GitHub Profile
             </a>
             <img
@@ -934,46 +1027,39 @@
         </div>
       </div>
 
-      <a class="link-card" href="https://obnoxiouslynoxious.github.io/RSLMapProject" target="_blank" rel="noopener">
-        <div class="icon icon-map">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3fb950" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C8.686 2 6 4.686 6 8c0 5.25 6 13 6 13s6-7.75 6-13c0-3.314-2.686-6-6-6z"/>
-            <circle cx="12" cy="8" r="2.25"/>
-          </svg>
+      <div class="pz-card-wrapper" id="pzWrapper">
+        <div class="pz-toggle" id="pzToggle">
+            <div class="icon" style="background:#212121;">
+            <img src="img/tool.png" width="22" height="22" alt="PZ Tools" style="border-radius:4px;object-fit:contain;">
+          </div>
+          <div class="card-text">
+            <div class="card-label">Utilities</div>
+            <div class="card-title">Project Zomboid Tools</div>
+          </div>
+          <span class="arrow">→</span>
         </div>
-        <div class="card-text">
-          <div class="card-label">Project Zomboid Tools</div>
-          <div class="card-title">Random Spawn Locations Map Project</div>
+        <div class="pz-panel" id="pzPanel">
+          <div class="pz-panel-inner">
+            <a class="pz-link" href="https://obnoxiouslynoxious.github.io/RSLMapProject" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3fb950" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.686 2 6 4.686 6 8c0 5.25 6 13 6 13s6-7.75 6-13c0-3.314-2.686-6-6-6z"/><circle cx="12" cy="8" r="2.25"/></svg>
+              <span class="pz-link-label">Random Spawn Locations Map Project</span>
+              <span class="arrow">→</span>
+            </a>
+            <a class="pz-link" href="https://obnoxiouslynoxious.github.io/ProjectCalcoid" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a5a0f5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="9" x2="9" y2="9.01"/><line x1="12" y1="9" x2="12" y2="9.01"/><line x1="15" y1="9" x2="15" y2="9.01"/><line x1="9" y1="12" x2="9" y2="12.01"/><line x1="12" y1="12" x2="12" y2="12.01"/><line x1="15" y1="12" x2="15" y2="12.01"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+              <span class="pz-link-label">Project Calcoid (Coords Converter)</span>
+              <span class="arrow">→</span>
+            </a>
+          </div>
         </div>
-        <span class="arrow">→</span>
-      </a>
-
-      <a class="link-card" href="https://obnoxiouslynoxious.github.io/ProjectCalcoid" target="_blank" rel="noopener">
-        <div class="icon icon-calcoid">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a5a0f5" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="4" width="16" height="16" rx="2"/>
-            <line x1="9" y1="9" x2="9" y2="9.01"/>
-            <line x1="12" y1="9" x2="12" y2="9.01"/>
-            <line x1="15" y1="9" x2="15" y2="9.01"/>
-            <line x1="9" y1="12" x2="9" y2="12.01"/>
-            <line x1="12" y1="12" x2="12" y2="12.01"/>
-            <line x1="15" y1="12" x2="15" y2="12.01"/>
-            <line x1="9" y1="15" x2="15" y2="15"/>
-          </svg>
-        </div>
-        <div class="card-text">
-          <div class="card-label">Project Zomboid Tools</div>
-          <div class="card-title">Project Calcoid (Coords Converter)</div>
-        </div>
-        <span class="arrow">→</span>
-      </a>
+      </div>
 
     </div>
 
     <div class="contact-card-wrapper" id="contactWrapper">
       <div class="contact-toggle" id="contactToggle">
-        <div class="icon" style="background:#21262d;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <div class="icon" style="background:#212121;">
+          <img src="img/mail.png" width="26" height="26" alt="Contact" style="object-fit:contain;">
         </div>
         <div class="card-text">
           <div class="card-label">Collaborations / Commissions / Feedback</div>
@@ -984,12 +1070,12 @@
       <div class="contact-panel" id="contactPanel">
         <div class="contact-panel-inner">
           <a class="contact-link" href="https://discord.gg/invite/yYB4EDxm2h" target="_blank" rel="noopener">
-            <img src="img/discord.png" width="32" height="32" alt="Discord" style="border-radius:6px;">
+            <img src="img/discord.png" width="20" height="20" alt="Discord" style="border-radius:4px;">
             <span class="contact-link-label">Discord</span>
             <span class="arrow">→</span>
           </a>
           <a class="contact-link" href="mailto:cogito.ergo.olfacio@gmail.com">
-            <img src="img/email.png" width="32" height="32" alt="Email" style="border-radius:6px;">
+            <img src="img/email.png" width="20" height="20" alt="Email" style="border-radius:4px;">
             <span class="contact-link-label">Email: cogito.ergo.olfacio@gmail.com</span>
             <span class="arrow">→</span>
           </a>
@@ -999,17 +1085,19 @@
 
     <div class="support-card-wrapper" id="supportWrapper">
       <div class="support-toggle" id="supportToggle">
-        <img src="img/bleach.png" width="42" height="42" alt="Support" style="border-radius:10px;object-fit:cover;">
+        <div class="icon" style="background:#212121;">
+          <img src="img/bleach.png" width="22" height="22" alt="Support" style="border-radius:4px;object-fit:contain;">
+        </div>
         <div class="card-text">
           <div class="card-label">Buy me a Bottle of Bleach</div>
-          <div class="card-title">Support my Work</div>
+          <div class="card-title">Support</div>
         </div>
         <span class="arrow">→</span>
       </div>
       <div class="support-panel" id="supportPanel">
         <div class="support-panel-inner">
           <a class="support-link" href="https://ko-fi.com/obnoxiouslynoxious" target="_blank" rel="noopener">
-            <img src="img/kofi.png" width="32" height="32" alt="Ko-Fi" style="border-radius:6px;">
+            <img src="img/kofi.png" width="20" height="20" alt="Ko-Fi" style="border-radius:4px;">
             <span class="support-link-label">Ko-Fi</span>
             <span class="arrow">→</span>
           </a>
@@ -1061,7 +1149,7 @@
       const awardsCount = document.getElementById('awardsCount');
 
       if (!mods.length) {
-        loading.innerHTML = '<div style="text-align:center;color:#484f58;font-size:12px;padding:12px">Could not load mods</div>';
+        loading.innerHTML = '<div style="text-align:center;color:#555555;font-size:12px;padding:12px">Could not load mods</div>';
         return;
       }
 
@@ -1072,24 +1160,24 @@
         return `
           <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=${mod.id}" target="_blank" rel="noopener">
             <img class="mod-thumb" src="img/${slugify(mod.name)}.png" alt="${mod.name}"
-                 loading="lazy" onerror="this.style.background='#21262d';this.removeAttribute('src')">
+                 loading="lazy" onerror="this.style.background='#212121';this.removeAttribute('src')">
             <div class="mod-body">
               <div class="mod-name">${mod.name}</div>
               <div class="mod-stats">
                 <span class="stat" title="Unique Visitors">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
                   <span class="stat-val">${fmt(mod.views)}</span>
                 </span>
                 <span class="stat" title="Subscribers">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                   <span class="stat-val">${fmt(mod.subscriptions)}</span>
                 </span>
                 <span class="stat" title="Favourites">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                   <span class="stat-val">${fmt(mod.favorited)}</span>
                 </span>
                 <span class="stat" title="Likes (Ratings)">
-                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8b949e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
                   <span class="stat-val">${fmt(mod.votes_up)}</span>
                 </span>
               </div>
@@ -1134,6 +1222,10 @@
     const supportToggle  = document.getElementById('supportToggle');
     supportToggle.addEventListener('click', () => supportWrapper.classList.toggle('open'));
 
+    const pzWrapper = document.getElementById('pzWrapper');
+    const pzToggle  = document.getElementById('pzToggle');
+    pzToggle.addEventListener('click', () => pzWrapper.classList.toggle('open'));
+
     const ghWrapper = document.getElementById('ghWrapper');
     const ghToggle  = document.getElementById('ghToggle');
     ghToggle.addEventListener('click', () => ghWrapper.classList.toggle('open'));
@@ -1141,7 +1233,7 @@
     async function buildContribGraph() {
       const wrap  = document.getElementById('ghGraphWrap');
       const total = document.getElementById('ghGraphTotal');
-      const COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
+      const COLORS = ['#161616', '#0e4429', '#006d32', '#26a641', '#39d353'];
       const CELL = 11, GAP = 2, STEP = CELL + GAP;
       const DAYS = 365;
 
@@ -1214,12 +1306,12 @@
 
       
       monthPositions.forEach(({ wi, label }) => {
-        svgContent += `<text x="${30 + wi * STEP}" y="10" font-size="9" fill="#8b949e">${label}</text>`;
+        svgContent += `<text x="${30 + wi * STEP}" y="10" font-size="9" fill="#888888">${label}</text>`;
       });
 
       
       DAY_LABELS.forEach((label, i) => {
-        if (label) svgContent += `<text x="0" y="${20 + i * STEP + CELL * 0.8}" font-size="9" fill="#8b949e">${label}</text>`;
+        if (label) svgContent += `<text x="0" y="${20 + i * STEP + CELL * 0.8}" font-size="9" fill="#888888">${label}</text>`;
       });
 
       
@@ -1231,7 +1323,7 @@
           const x = 30 + wi * STEP;
           const y = 18 + di * STEP;
           const title = c ? `${c} contribution${c !== 1 ? 's' : ''} on ${date}` : `No contributions on ${date}`;
-          svgContent += `<rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="2" fill="${color}" stroke="#1b1f23" stroke-width="0.5"><title>${title}</title></rect>`;
+          svgContent += `<rect x="${x}" y="${y}" width="${CELL}" height="${CELL}" rx="2" fill="${color}" stroke="#1b1b1b" stroke-width="0.5"><title>${title}</title></rect>`;
         });
       });
 
