@@ -357,14 +357,18 @@
       display: none;
       align-items: center;
       justify-content: center;
-      gap: 20px;
+      gap: 8px;
       background: #161616;
       border: 1px solid #2a2a2a;
       border-radius: 8px;
       padding: 8px 14px;
-      font-size: 12px;
+      font-size: 11px;
       color: #888888;
       text-transform: uppercase;
+    }
+
+    .stats-bar-sep {
+      color: #555555;
     }
 
     .stats-bar-item {
@@ -886,7 +890,7 @@
 
     <div class="header">
       <img class="avatar" src="data:image/png;base64,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" alt="ObnoxiouslyNoxious avatar">
-      <h1>ObnoxiouslyNoxious</h1>
+      <img src="img/bannerfade.png" alt="ObnoxiouslyNoxious" style="width:100%;max-width:520px;display:block;margin:0 auto 0.5rem;border-radius:8px;">
       <p><i>'Pungent Stench, Potent Code'</i></p>
     </div>
 
@@ -939,14 +943,17 @@
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
                 <span class="stats-bar-val" id="totalViews">0</span> Views
               </span>
+              <span class="stats-bar-sep">&#8226;</span>
               <span class="stats-bar-item" title="Total Subscribers">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 <span class="stats-bar-val" id="totalSubs">0</span> Subs
               </span>
+              <span class="stats-bar-sep">&#8226;</span>
               <span class="stats-bar-item" title="Total Favourites">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                 <span class="stats-bar-val" id="totalFavs">0</span> Favs
               </span>
+              <span class="stats-bar-sep">&#8226;</span>
               <span class="stats-bar-item" title="Total Likes">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
                 <span class="stats-bar-val" id="totalLikes">0</span> Likes
