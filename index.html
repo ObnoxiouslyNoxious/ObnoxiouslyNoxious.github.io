@@ -1237,7 +1237,7 @@
         totalLikes += parseInt(mod.votes_up ?? 0, 10);
         return `
           <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=${mod.id}" target="_blank" rel="noopener">
-            <img class="mod-thumb" src="img/${slugify(mod.name)}.png" alt="${mod.name}"
+            <img class="mod-thumb" src="img/${slugify(mod.id)}.png" alt="${mod.name}"
                  loading="lazy" onerror="this.style.background='#212121';this.removeAttribute('src')">
             <div class="mod-body">
               <div class="mod-name">${mod.name}</div>
@@ -1282,19 +1282,19 @@
     }
 
     
-    const NAME_TO_SLUG = {
-      '[b42.19+] auto-drink revert [sp/mp]': 'auto-drink',
-      '[b42] skill master [sp/mp]':          'skill-master',
-      '[b42] aebs imperial & metric display [mp]': 'aebs',
-      '[b42] random spawn locations [mp]':   'random-spawn',
-      '[b42] zombies have smokes [sp/mp]':   'smokes',
-      '[b42] zombies have ammo [sp/mp]':     'ammo',
-      '[b42] zombies have money [sp/mp]':    'money',
-      '[b42] daily challenges & leaderboard [mp]': 'dcs',
+    const ID_TO_SLUG = {
+      '3737205872': 'auto-drink',
+      '3736268686': 'skill-master',
+      '3733578471': 'aebs',
+      '3730705272': 'random-spawn',
+      '3728443049': 'smokes',
+      '3728283972': 'ammo',
+      '3728275018': 'money',
+      '3752111970': 'dcs',
     };
 
-    function slugify(name) {
-      return NAME_TO_SLUG[name.toLowerCase()] ?? name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    function slugify(id) {
+      return ID_TO_SLUG[id] ?? 'unknown';
     }
 
     const aboutWrapper = document.getElementById('aboutWrapper');
