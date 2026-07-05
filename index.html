@@ -446,7 +446,7 @@
     }
 
     .mod-card:hover {
-      border-color: #4d9de0;
+      border-color: #ffffff;
       background: #1c1c1c;
       transform: translateY(-2px);
     }
@@ -1183,7 +1183,7 @@
     </div>
 
     <div style="text-align:center;margin-top:80px;margin-bottom:0;">
-      <img src="img/obnox.png" alt="ObnoxiouslyNoxious" style="width:48px;height:48px;opacity:1.0;">
+      <img src="img/obnox.png" alt="ObnoxiouslyNoxious" style="width:48px;height:48px;opacity:1.0;cursor:pointer;" onclick="openDashboard()">
     </div>
     <footer>
       <p><i>'COGITO, ERGO OLFACIO'</i></p>
@@ -1194,6 +1194,13 @@
 
   <script>
     const WORKER_URL = 'https://steam-stats-proxy.obnoxiouslynoxious.workers.dev';
+
+    function openDashboard() {
+      const key = prompt('Enter dashboard password:');
+      if (key) {
+        window.open(WORKER_URL + '/dashboard?key=' + encodeURIComponent(key), '_blank');
+      }
+    }
 
     fetch(WORKER_URL + '/visitors?site=main')
       .then(r => r.json())
