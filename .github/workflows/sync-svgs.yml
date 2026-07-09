@@ -26,11 +26,12 @@ jobs:
           mkdir -p img
           cp temp/profile.svg img/profile.svg
           cp temp/languages.svg img/languages.svg
+          cp temp/isocalendar.svg img/isocalendar.svg
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add img/profile.svg img/languages.svg
+          git add img/profile.svg img/languages.svg img/isocalendar.svg
           git diff --cached --quiet || git commit -m "Sync SVGs [Skip GitHub Action]"
           git pull --rebase origin main
           git push
