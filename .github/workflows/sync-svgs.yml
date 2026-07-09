@@ -22,6 +22,7 @@ jobs:
           token: ${{ secrets.SYNC_TOKEN }}
       - name: Copy SVGs
         run: |
+          ls -la
           mkdir -p img
           cp temp/profile.svg img/profile.svg
           cp temp/languages.svg img/languages.svg
