@@ -1,0 +1,29 @@
+name: Sync SVGs
+
+on:
+  schedule:
+    - cron: '15 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: ObnoxiouslyNoxious/ObnoxiouslyNoxious
+          path: temp
+          token: ${{ secrets.SYNC_TOKEN }}
+      - name: Copy SVGs
+        run: |
+          cp temp/profile.svg img/profile.svg
+          cp temp/languages.svg img/languages.svg
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add img/profile.svg img/languages.svg
+          git diff --cached --quiet || git commit -m "Sync SVGs [Skip GitHub Action]"
+          git push
