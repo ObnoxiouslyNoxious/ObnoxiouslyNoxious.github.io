@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - ObnoxiouslyNoxious</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="img/obnox-cropped.png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { scrollbar-width: none; }
+    html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0d0d0d;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      line-height: 1.7;
+    }
+    .container { width: 100%; max-width: 640px; }
+    h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .updated { font-size: 0.8rem; color: #555; margin-bottom: 2rem; }
+    h2 { font-size: 1.1rem; font-weight: 600; color: #ccc; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    p, li { font-size: 0.9rem; color: #999; margin-bottom: 0.75rem; }
+    ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    li { margin-bottom: 0.4rem; }
+    a { color: #7c7cff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back { display: inline-block; margin-top: 2rem; font-size: 0.85rem; color: #555; text-decoration: none; }
+    .back:hover { color: #999; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Privacy Policy</h1>
+    <div class="updated">Last updated: 12 July 2026</div>
+
+    <h2>1. Introduction</h2>
+    <p>This Privacy Policy explains how NoxiousBot ("the Bot") collects, uses, and stores information when you interact with it in Discord.</p>
+
+    <h2>2. Information Collected</h2>
+    <p>The Bot collects the following information:</p>
+    <ul>
+      <li><strong>Discord User ID</strong> and <strong>username</strong> &mdash; used to identify you for ticket ownership, bug report attribution, and role management</li>
+      <li><strong>Twitch or YouTube account details</strong> &mdash; collected during content creator registration to link your streaming accounts and assign roles</li>
+      <li><strong>Bug report and suggestion content</strong> &mdash; including title, description, steps to reproduce, version info, and any attached file URLs</li>
+      <li><strong>Ticket content</strong> &mdash; messages submitted through the ticket modal and subsequent thread replies</li>
+    </ul>
+
+    <h2>3. How Information Is Used</h2>
+    <p>Collected data is used solely to provide the Bot's features:</p>
+    <ul>
+      <li>Filing bug reports and suggestions as GitHub issues (your Discord username is included for attribution)</li>
+      <li>Creating and managing support tickets as private Discord threads</li>
+      <li>Assigning and managing Discord roles for content creators and live streamers</li>
+      <li>Syncing issue status updates between GitHub and Discord</li>
+      <li>AI-assisted bug triage (severity, category, and duplicate detection) via Anthropic's Claude API</li>
+    </ul>
+
+    <h2>4. Data Storage</h2>
+    <p>User data is stored in Cloudflare Workers KV, a key-value database. Data is retained indefinitely until a user or server admin requests deletion. Ticket transcripts may be stored in a Discord channel designated by the server admin.</p>
+
+    <h2>5. Data Shared with Third Parties</h2>
+    <ul>
+      <li><strong>GitHub</strong> &mdash; bug reports and suggestions are filed as public issues on GitHub repositories. Your Discord username and ID are included in these issues.</li>
+      <li><strong>Anthropic</strong> &mdash; bug report text (title, description, steps) may be sent to Anthropic's Claude API for automated triage. No personally identifying information beyond the report content is sent.</li>
+      <li><strong>Discord</strong> &mdash; the Bot interacts with the Discord API to send messages, manage roles, and create threads as part of its normal operation.</li>
+      <li><strong>Twitch</strong> &mdash; Twitch API is used to verify streamer registration and manage EventSub subscriptions for live notifications.</li>
+    </ul>
+
+    <h2>6. Data Retention</h2>
+    <ul>
+      <li>Discord user IDs and linked account data are retained until deletion is requested</li>
+      <li>Bug reports and suggestions are retained as long as the associated GitHub issue exists</li>
+      <li>Ticket transcripts are retained according to the server's retention settings</li>
+      <li>Twitch EventSub subscriptions are automatically expired after a safety window</li>
+    </ul>
+
+    <h2>7. Data Deletion</h2>
+    <p>You may request deletion of your data by contacting the developer via Discord or email at <a href="mailto:cogito.ergo.olfacio@gmail.com">cogito.ergo.olfacio@gmail.com</a>. Upon request, the Bot will remove your stored data, including linked account information and ticket history.</p>
+
+    <h2>8. Security</h2>
+    <p>The Bot operates on Cloudflare's infrastructure and follows standard security practices. Secrets and API keys are stored securely and never exposed to users. The Bot does not collect or store passwords, payment information, or other sensitive personal data.</p>
+
+    <h2>9. Children's Privacy</h2>
+    <p>The Bot is not directed at children under 13. It does not knowingly collect personal information from children. Users must meet Discord's minimum age requirements to interact with the Bot.</p>
+
+    <h2>10. Changes to This Policy</h2>
+    <p>This Privacy Policy may be updated from time to time. Changes will be reflected by the "Last updated" date at the top of this page.</p>
+
+    <h2>11. Contact</h2>
+    <p>For privacy-related inquiries, contact the developer at <a href="mailto:cogito.ergo.olfacio@gmail.com">cogito.ergo.olfacio@gmail.com</a> or via Discord.</p>
+
+    <a class="back" href="index.html">&larr; Back to home</a>
+  </div>
+</body>
+</html>
