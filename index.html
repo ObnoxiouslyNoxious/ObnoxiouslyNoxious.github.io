@@ -1344,6 +1344,31 @@
     const ghToggle  = document.getElementById('ghToggle');
     ghToggle.addEventListener('click', () => ghWrapper.classList.toggle('open'));
 
+    const CARD_HASHES = {
+      about:   'aboutWrapper',
+      steam:   'steamWrapper',
+      github:  'ghWrapper',
+      pztools: 'pzWrapper',
+      contact: 'contactWrapper',
+      support: 'supportWrapper',
+    };
+
+    function openFromHash() {
+      const hash = location.hash.replace('#', '');
+      const id = CARD_HASHES[hash];
+      if (id) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.classList.add('open');
+          if (hash === 'steam' && !steamFetched) { steamFetched = true; fetchMods(); }
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    }
+
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
+
     async function buildContribGraph() {
       const wrap  = document.getElementById('ghGraphWrap');
       const total = document.getElementById('ghGraphTotal');
