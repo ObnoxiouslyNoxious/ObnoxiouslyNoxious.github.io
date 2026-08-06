@@ -1251,7 +1251,7 @@
       </div>
     </div>
 
-    <div class="partners-card-wrapper" id="partnersWrapper">
+    <div class="partners-card-wrapper" id="partners" style="scroll-margin-top:20px;">
       <div class="partners-toggle" id="partnersToggle">
         <div class="icon" style="background:#212121;">
           <img src="img/partners.png" width="22" height="22" alt="Partners" style="border-radius:4px;object-fit:contain;">
@@ -1442,9 +1442,14 @@
     const supportToggle  = document.getElementById('supportToggle');
     supportToggle.addEventListener('click', () => supportWrapper.classList.toggle('open'));
 
-    const partnersWrapper = document.getElementById('partnersWrapper');
+    const partnersWrapper = document.getElementById('partners');
     const partnersToggle  = document.getElementById('partnersToggle');
     partnersToggle.addEventListener('click', () => partnersWrapper.classList.toggle('open'));
+
+    if (window.location.hash === '#partners') {
+      partnersWrapper.classList.add('open');
+      setTimeout(() => partnersWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+    }
 
     const pzWrapper = document.getElementById('pzWrapper');
     const pzToggle  = document.getElementById('pzToggle');
