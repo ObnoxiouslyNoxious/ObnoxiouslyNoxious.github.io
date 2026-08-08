@@ -573,6 +573,43 @@
       font-style: italic;
     }
 
+    blockquote {
+      border: none;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin-bottom: -30px;
+      position: relative;
+      max-width: 400px;
+      margin: 0 auto;
+      padding-left: 0;
+    }
+
+    blockquote h3 {
+      font-size: 13px;
+      font-weight: normal;
+    }
+
+    blockquote h3:before {
+      content: "\201C";
+      font-weight: bold;
+      font-size: 50px;
+      color: #888888;
+      position: absolute;
+      top: -0.4em;
+      left: -0.55em;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    blockquote h3:after {
+      content: "\201D";
+      font-weight: bold;
+      font-size: 50px;
+      color: #888888;
+      position: absolute;
+      bottom: -0.95em;
+      right: -0.35em;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
     .contact-card-wrapper {
       display: flex;
       flex-direction: column;
@@ -1047,7 +1084,7 @@
         <span class="arrow">→</span>
       </div>
       <div class="about-panel" id="aboutPanel">
-        <div class="about-panel-inner" style="text-align:center;"><strong>Developer • Designer • Degenerate</strong><br><br>&ldquo;People seem convinced I'm an overweight, unshaven and unshowered degenerate who spends most of my time writing code and festering in a basement. But the truth is, my house doesn't even have a basement.&rdquo;</div>
+        <div class="about-panel-inner" style="text-align:center;"><strong>Developer • Designer • Degenerate</strong><br><br><div class="container"><blockquote><h3>People seem convinced I'm an overweight, unshaven and unshowered degenerate who spends most of my time writing code and festering in a basement. But the truth is, my house doesn't even have a basement.</h3></blockquote></div></div>
       </div>
     </div>
 
