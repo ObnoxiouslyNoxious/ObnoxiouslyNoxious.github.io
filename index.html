@@ -610,6 +610,22 @@
       font-family: Georgia, 'Times New Roman', serif;
     }
 
+    @media (max-width: 480px) {
+      blockquote h3 {
+        padding: 0 1em;
+      }
+      blockquote h3:before {
+        font-size: 20px;
+        top: -0.1em;
+        left: 0;
+      }
+      blockquote h3:after {
+        font-size: 20px;
+        bottom: -0.5em;
+        right: 0.3em;
+      }
+    }
+
     .contact-card-wrapper {
       display: flex;
       flex-direction: column;
