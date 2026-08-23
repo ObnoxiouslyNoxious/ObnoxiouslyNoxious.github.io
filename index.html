@@ -1589,7 +1589,7 @@
               Signed in as <strong id="brSteamName"></strong>
             </div>
 
-            <div class="cf-turnstile" id="brTurnstile" data-sitekey="0x4AAAAAAEZQFJKxIHmeH4bi" data-theme="dark" data-size="flexible"></div>
+            <div class="cf-turnstile" id="brTurnstile" data-sitekey="0x4AAAAAAEZQFJKxIHmeH4bi" data-theme="dark" data-size="flexible" data-callback="onBrTurnstileSuccess" data-expired-callback="onBrTurnstileExpired" data-error-callback="onBrTurnstileExpired"></div>
 
             <button class="br-submit-btn" id="brSubmitBtn" type="button" disabled>Submit Report</button>
 
@@ -1906,6 +1906,15 @@
     let brModsFetched = false;
     let brSession = null; // { token, displayName } once signed in
 
+    // Captured via the widget's data-callback rather than polled with
+    // getResponse() at submit time — getResponse('brTurnstile') looking up
+    // an implicitly-rendered widget by its container's DOM id was unreliable
+    // in practice (confirmed live: widget showed "Success" but getResponse
+    // still returned empty), so the callback is the token's source of truth.
+    let brTurnstileToken = '';
+    window.onBrTurnstileSuccess = (token) => { brTurnstileToken = token; };
+    window.onBrTurnstileExpired = () => { brTurnstileToken = ''; };
+
     brToggle.addEventListener('click', () => {
       brWrapper.classList.toggle('open');
       if (brWrapper.classList.contains('open') && !brModsFetched) {
@@ -2031,15 +2040,7 @@
         }
       }
 
-      // getResponse() throws (not returns falsy) if the widget never
-      // rendered — an invalid/misconfigured site key, the Turnstile script
-      // failing to load, etc. Confirmed live during testing: an uncaught
-      // throw here silently aborted the whole submit with zero feedback to
-      // the user, who'd see Submit do nothing at all.
-      let turnstileToken = '';
-      try {
-        turnstileToken = window.turnstile ? window.turnstile.getResponse('brTurnstile') : '';
-      } catch (e) {}
+      const turnstileToken = brTurnstileToken;
       if (!turnstileToken) {
         return showBrStatus('error', 'Please complete the verification challenge.');
       }
@@ -2078,6 +2079,7 @@
       } finally {
         brSubmitBtn.disabled = false;
         brSubmitBtn.textContent = 'Submit Report';
+        brTurnstileToken = '';
         try { if (window.turnstile) window.turnstile.reset('brTurnstile'); } catch (e) {}
       }
     });
