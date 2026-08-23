@@ -6,6 +6,7 @@
   <title>ObnoxiouslyNoxious</title>
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
   <link rel="icon" type="image/png" sizes="48x48" href="img/favicon.png">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <meta name="description" content="Pungent Stench, Potent Code">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://obnoxiouslynoxious.github.io/">
@@ -118,13 +119,15 @@
     .card-title { font-size: 15px; font-weight: 500; color: #e0e0e0; }
 
     .arrow {
-      color: #555555;
-      font-size: 18px;
-      transition: color 0.15s, transform 0.15s;
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      opacity: 0.6;
+      transition: opacity 0.15s, transform 0.15s;
     }
 
     .link-card:hover .arrow {
-      color: #5e5e5e;
+      opacity: 1;
       transform: translateX(3px);
     }
 
@@ -156,17 +159,17 @@
 
     .gh-toggle .arrow {
       margin-left: auto;
-      color: #555555;
+      opacity: 0.6;
       font-size: 18px;
-      transition: color 0.15s, transform 0.2s;
+      transition: opacity 0.15s, transform 0.2s;
     }
 
     .gh-card-wrapper.open .gh-toggle .arrow {
-      color: #5e5e5e;
+      opacity: 1;
       transform: rotate(90deg);
     }
 
-    .gh-toggle:hover .arrow { color: #5e5e5e; }
+    .gh-toggle:hover .arrow { opacity: 1; }
 
     .gh-panel {
       background: #0d0d0d;
@@ -270,16 +273,16 @@
 
     .steam-toggle .arrow {
       margin-left: auto;
-      transition: color 0.15s, transform 0.2s;
+      transition: opacity 0.15s, transform 0.2s;
     }
 
     .steam-card-wrapper.open .steam-toggle .arrow {
-      color: #5e5e5e;
+      opacity: 1;
       transform: rotate(90deg);
     }
 
     .steam-toggle:hover .arrow {
-      color: #5e5e5e;
+      opacity: 1;
     }
 
     .mod-panel {
@@ -543,17 +546,17 @@
 
     .about-toggle .arrow {
       margin-left: auto;
-      color: #555555;
+      opacity: 0.6;
       font-size: 18px;
-      transition: color 0.15s, transform 0.2s;
+      transition: opacity 0.15s, transform 0.2s;
     }
 
     .about-card-wrapper.open .about-toggle .arrow {
-      color: #5e5e5e;
+      opacity: 1;
       transform: rotate(90deg);
     }
 
-    .about-toggle:hover .arrow { color: #5e5e5e; }
+    .about-toggle:hover .arrow { opacity: 1; }
 
     .about-panel {
       background: #0d0d0d;
@@ -653,17 +656,17 @@
 
     .contact-toggle .arrow {
       margin-left: auto;
-      color: #555555;
+      opacity: 0.6;
       font-size: 18px;
-      transition: color 0.15s, transform 0.2s;
+      transition: opacity 0.15s, transform 0.2s;
     }
 
     .contact-card-wrapper.open .contact-toggle .arrow {
-      color: #5e5e5e;
+      opacity: 1;
       transform: rotate(90deg);
     }
 
-    .contact-toggle:hover .arrow { color: #5e5e5e; }
+    .contact-toggle:hover .arrow { opacity: 1; }
 
     .contact-panel {
       background: #0d0d0d;
@@ -709,13 +712,13 @@
 
     .contact-link .arrow {
       margin-left: auto;
-      color: #555555;
+      opacity: 0.6;
       font-size: 16px;
-      transition: color 0.15s, transform 0.15s;
+      transition: opacity 0.15s, transform 0.15s;
     }
 
     .contact-link:hover .arrow {
-      color: #5e5e5e;
+      opacity: 1;
       transform: translateX(3px);
     }
 
@@ -746,17 +749,17 @@
 
     .partners-toggle .arrow {
       margin-left: auto;
-      color: #555555;
+      opacity: 0.6;
       font-size: 18px;
-      transition: color 0.15s, transform 0.2s;
+      transition: opacity 0.15s, transform 0.2s;
     }
 
     .partners-card-wrapper.open .partners-toggle .arrow {
-      color: #5e5e5e;
+      opacity: 1;
       transform: rotate(90deg);
     }
 
-    .partners-toggle:hover .arrow { color: #5e5e5e; }
+    .partners-toggle:hover .arrow { opacity: 1; }
 
     .partners-panel {
       background: #0d0d0d;
@@ -829,17 +832,17 @@
 
     .impact-toggle .arrow {
       margin-left: auto;
-      color: #555555;
+      opacity: 0.6;
       font-size: 18px;
-      transition: color 0.15s, transform 0.2s;
+      transition: opacity 0.15s, transform 0.2s;
     }
 
     .impact-card-wrapper.open .impact-toggle .arrow {
-      color: #5e5e5e;
+      opacity: 1;
       transform: rotate(90deg);
     }
 
-    .impact-toggle:hover .arrow { color: #5e5e5e; }
+    .impact-toggle:hover .arrow { opacity: 1; }
 
     .impact-panel {
       background: #0d0d0d;
@@ -908,17 +911,17 @@
 
     .support-toggle .arrow {
       margin-left: auto;
-      color: #555555;
+      opacity: 0.6;
       font-size: 18px;
-      transition: color 0.15s, transform 0.2s;
+      transition: opacity 0.15s, transform 0.2s;
     }
 
     .support-card-wrapper.open .support-toggle .arrow {
-      color: #5e5e5e;
+      opacity: 1;
       transform: rotate(90deg);
     }
 
-    .support-toggle:hover .arrow { color: #5e5e5e; }
+    .support-toggle:hover .arrow { opacity: 1; }
 
     .support-panel {
       background: #0d0d0d;
@@ -964,13 +967,13 @@
 
     .support-link .arrow {
       margin-left: auto;
-      color: #555555;
+      opacity: 0.6;
       font-size: 16px;
-      transition: color 0.15s, transform 0.15s;
+      transition: opacity 0.15s, transform 0.15s;
     }
 
     .support-link:hover .arrow {
-      color: #5e5e5e;
+      opacity: 1;
       transform: translateX(3px);
     }
 
@@ -1007,17 +1010,17 @@
 
     .pz-toggle .arrow {
       margin-left: auto;
-      color: #555555;
+      opacity: 0.6;
       font-size: 18px;
-      transition: color 0.15s, transform 0.2s;
+      transition: opacity 0.15s, transform 0.2s;
     }
 
     .pz-card-wrapper.open .pz-toggle .arrow {
-      color: #5e5e5e;
+      opacity: 1;
       transform: rotate(90deg);
     }
 
-    .pz-toggle:hover .arrow { color: #5e5e5e; }
+    .pz-toggle:hover .arrow { opacity: 1; }
 
     .pz-panel {
       background: #0d0d0d;
@@ -1061,15 +1064,202 @@
 
     .pz-link .arrow {
       margin-left: auto;
-      color: #555555;
+      opacity: 0.6;
       font-size: 16px;
-      transition: color 0.15s, transform 0.15s;
+      transition: opacity 0.15s, transform 0.15s;
     }
 
     .pz-link:hover .arrow {
-      color: #5e5e5e;
+      opacity: 1;
       transform: translateX(3px);
     }
+
+    .br-card-wrapper {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.15s;
+    }
+
+    .br-card-wrapper.open { border-color: #5e5e5e; }
+
+    .br-toggle {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #161616;
+      padding: 14px 18px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+    }
+
+    .br-toggle:hover { background: #1c1c1c; }
+
+    .br-toggle .arrow {
+      margin-left: auto;
+      opacity: 0.6;
+      font-size: 18px;
+      transition: opacity 0.15s, transform 0.2s;
+    }
+
+    .br-card-wrapper.open .br-toggle .arrow {
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+
+    .br-toggle:hover .arrow { opacity: 1; }
+
+    .br-panel {
+      background: #0d0d0d;
+      border-top: 1px solid #212121;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .br-card-wrapper.open .br-panel { max-height: 2200px; }
+
+    .br-panel-inner {
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .br-field { display: flex; flex-direction: column; gap: 5px; }
+
+    .br-label {
+      font-size: 12px;
+      color: #888888;
+      font-weight: 500;
+    }
+
+    .br-label .req { color: #d9534f; margin-left: 2px; }
+    .br-label .opt { color: #555555; font-weight: 400; font-style: italic; }
+
+    .br-select, .br-input, .br-textarea {
+      width: 100%;
+      background: #161616;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 9px 12px;
+      color: #e0e0e0;
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .br-select:focus, .br-input:focus, .br-textarea:focus { border-color: #5e5e5e; }
+
+    .br-textarea { resize: vertical; min-height: 70px; line-height: 1.5; }
+
+    .br-input[type="file"] { padding: 7px 12px; font-size: 12px; }
+    .br-input[type="file"]::-webkit-file-upload-button {
+      background: #212121;
+      border: 1px solid #2a2a2a;
+      border-radius: 6px;
+      color: #e0e0e0;
+      font-family: inherit;
+      font-size: 12px;
+      padding: 4px 10px;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .br-file-hint { font-size: 11px; color: #555555; }
+
+    .br-mod-preview {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      background: #161616;
+      border: 1px solid #212121;
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+
+    .br-mod-preview.show { display: flex; }
+
+    .br-mod-preview img {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      object-fit: cover;
+      background: #212121;
+      flex-shrink: 0;
+    }
+
+    .br-mod-preview span { font-size: 12px; color: #888888; }
+
+    .br-divider {
+      border-top: 1px solid #212121;
+      margin: 2px 0;
+    }
+
+    .br-steam-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #1b2838;
+      border: 1px solid #2a3f5f;
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .br-steam-btn:hover { background: #24334a; border-color: #3d5a85; }
+    .br-steam-btn:disabled { opacity: 0.6; cursor: default; }
+
+    .br-signed-in {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      background: #10241a;
+      border: 1px solid #1e4a30;
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 12px;
+      color: #6fcf97;
+    }
+
+    .br-signed-in.show { display: flex; }
+    .br-signed-in strong { color: #e0e0e0; }
+
+    .br-submit-btn {
+      background: #1c1c1c;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      padding: 11px 14px;
+      color: #e0e0e0;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    .br-submit-btn:hover:not(:disabled) { background: #262626; border-color: #5e5e5e; }
+    .br-submit-btn:disabled { opacity: 0.5; cursor: default; }
+
+    .br-status {
+      display: none;
+      font-size: 12px;
+      border-radius: 8px;
+      padding: 10px 12px;
+      line-height: 1.5;
+    }
+
+    .br-status.show { display: block; }
+    .br-status.success { background: #10241a; border: 1px solid #1e4a30; color: #6fcf97; }
+    .br-status.error { background: #2a1414; border: 1px solid #4a1e1e; color: #e08a8a; }
+    .br-status a { color: inherit; font-weight: 600; }
 
     footer {
       margin-top: 0;
@@ -1097,7 +1287,7 @@
           <div class="card-label">About</div>
           <div class="card-title">About</div>
         </div>
-        <span class="arrow">→</span>
+        <img class="arrow" src="img/arrow.png" alt="">
       </div>
       <div class="about-panel" id="aboutPanel">
         <div class="about-panel-inner" style="text-align:center;"><strong>Developer • Designer • Degenerate</strong><br><br><div class="container"><blockquote><h3>People seem convinced I'm an overweight, unshaven and unshowered degenerate who spends most of my time writing code and festering in a basement. But the truth is, my house doesn't even have a basement.</h3></blockquote></div></div>
@@ -1115,7 +1305,7 @@
             <div class="card-label">Workshop</div>
             <div class="card-title">Steam Workshop</div>
           </div>
-          <span class="arrow">→</span>
+          <img class="arrow" src="img/arrow.png" alt="">
         </div>
 
         <div class="mod-panel" id="modPanel">
@@ -1267,7 +1457,7 @@
             <div class="card-label">Profile</div>
             <div class="card-title">GitHub</div>
           </div>
-          <span class="arrow">→</span>
+          <img class="arrow" src="img/arrow.png" alt="">
         </div>
 
         <div class="gh-panel" id="ghPanel">
@@ -1304,30 +1494,107 @@
             <div class="card-label">Utilities</div>
             <div class="card-title">Project Zomboid Tools</div>
           </div>
-          <span class="arrow">→</span>
+          <img class="arrow" src="img/arrow.png" alt="">
         </div>
         <div class="pz-panel" id="pzPanel">
           <div class="pz-panel-inner">
             <a class="pz-link" href="https://obnox.dev/docs" target="_blank" rel="noopener">
               <img src="img/noxdocs-favicon.png" width="20" height="20" alt="NoxDocs" style="border-radius:4px;object-fit:contain;">
               <span class="pz-link-label">NoxDocs Mod Documentation</span>
-              <span class="arrow">→</span>
+              <img class="arrow" src="img/arrow.png" alt="">
             </a>
             <a class="pz-link" href="https://obnox.dev/DynamicChallengeBot/" target="_blank" rel="noopener">
               <img src="img/dcsicon.png" width="20" height="20" alt="Dynamic Challenges" style="object-fit:contain;">
               <span class="pz-link-label">View Today's Dynamic Challenges</span>
-              <span class="arrow">→</span>
+              <img class="arrow" src="img/arrow.png" alt="">
             </a>
             <a class="pz-link" href="https://obnoxiouslynoxious.github.io/RSLMapProject" target="_blank" rel="noopener">
               <img src="img/map.png" width="20" height="20" alt="Map" style="object-fit:contain;">
               <span class="pz-link-label">Random Spawn Locations Map Project</span>
-              <span class="arrow">→</span>
+              <img class="arrow" src="img/arrow.png" alt="">
             </a>
             <a class="pz-link" href="https://obnoxiouslynoxious.github.io/ProjectCalcoid" target="_blank" rel="noopener">
               <img src="img/calculator.png" width="20" height="20" alt="Calculator" style="object-fit:contain;">
               <span class="pz-link-label">Project Calcoid (Coords Converter)</span>
-              <span class="arrow">→</span>
+              <img class="arrow" src="img/arrow.png" alt="">
             </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="br-card-wrapper" id="brWrapper">
+        <div class="br-toggle" id="brToggle">
+          <div class="icon" style="background:#212121;">
+            <img src="img/bugreport.png" width="22" height="22" alt="" style="border-radius:4px;object-fit:contain;">
+          </div>
+          <div class="card-text">
+            <div class="card-label">Report a problem, signed in with Steam</div>
+            <div class="card-title">Bug Reports &amp; Feedback</div>
+          </div>
+          <img class="arrow" src="img/arrow.png" alt="">
+        </div>
+
+        <div class="br-panel" id="brPanel">
+          <div class="br-panel-inner">
+
+            <div class="br-field">
+              <label class="br-label" for="brMod">Mod<span class="req">*</span></label>
+              <select class="br-select" id="brMod" disabled>
+                <option value="">Loading mods…</option>
+              </select>
+              <div class="br-mod-preview" id="brModPreview">
+                <img id="brModPreviewImg" alt="">
+                <span id="brModPreviewName"></span>
+              </div>
+            </div>
+
+            <div class="br-field">
+              <label class="br-label" for="brTitle">Title<span class="req">*</span></label>
+              <input class="br-input" id="brTitle" type="text" maxlength="120" placeholder="Short summary of the Issue / Feedback">
+            </div>
+
+            <div class="br-field">
+              <label class="br-label" for="brDescription">What happened?<span class="req">*</span></label>
+              <textarea class="br-textarea" id="brDescription" maxlength="1500" placeholder="Describe the Bug or your Feedback"></textarea>
+            </div>
+
+            <div class="br-field">
+              <label class="br-label" for="brExpectation">What did you expect to happen?<span class="opt"> (Optional)</span></label>
+              <textarea class="br-textarea" id="brExpectation" maxlength="1000"></textarea>
+            </div>
+
+            <div class="br-field">
+              <label class="br-label" for="brSteps">Steps to reproduce<span class="opt"> (Optional)</span></label>
+              <textarea class="br-textarea" id="brSteps" maxlength="1000"></textarea>
+            </div>
+
+            <div class="br-field">
+              <label class="br-label" for="brVersion">Mod & Game Version<span class="opt"> (Optional)</span></label>
+              <input class="br-input" id="brVersion" type="text" maxlength="100" placeholder="e.g. Game Version B42.20.2 // Mod Version 1.0.5">
+            </div>
+
+            <div class="br-field">
+              <label class="br-label" for="brFile">Attach a Log or Screenshot<span class="opt"> (Optional)</span></label>
+              <input class="br-input" id="brFile" type="file" accept=".txt,.png">
+              <span class="br-file-hint">File Types: .txt or .png (2MB File Size Maximum)</span>
+            </div>
+
+            <div class="br-divider"></div>
+
+            <button class="br-steam-btn" id="brSteamBtn" type="button">
+              <img src="img/steam.png" width="16" height="16" alt="" style="object-fit:contain;">
+              Sign in with Steam to Submit
+            </button>
+            <div class="br-signed-in" id="brSignedIn">
+              Signed in as <strong id="brSteamName"></strong>
+            </div>
+
+            <div class="cf-turnstile" id="brTurnstile" data-sitekey="0x4AAAAAAEZQFJKxIHmeH4bi" data-theme="dark" data-size="flexible"></div>
+
+            <button class="br-submit-btn" id="brSubmitBtn" type="button" disabled>Submit Report</button>
+
+            <div class="br-status" id="brStatus"></div>
+
           </div>
         </div>
       </div>
@@ -1343,19 +1610,19 @@
           <div class="card-label">Collaborations / Commissions / Feedback</div>
           <div class="card-title">Contact</div>
         </div>
-        <span class="arrow">→</span>
+        <img class="arrow" src="img/arrow.png" alt="">
       </div>
       <div class="contact-panel" id="contactPanel">
         <div class="contact-panel-inner">
           <a class="contact-link" href="https://obnox.dev/discord" target="_blank" rel="noopener">
             <img src="img/discord.png" width="20" height="20" alt="Discord" style="border-radius:4px;">
             <span class="contact-link-label">Discord: obnoxiouslynoxious</span>
-            <span class="arrow">→</span>
+            <img class="arrow" src="img/arrow.png" alt="">
           </a>
           <a class="contact-link" href="mailto:cogito.ergo.foeteo@gmail.com">
             <img src="img/email.png" width="20" height="20" alt="Email" style="border-radius:4px;">
             <span class="contact-link-label">Email: cogito.ergo.foeteo@gmail.com</span>
-            <span class="arrow">→</span>
+            <img class="arrow" src="img/arrow.png" alt="">
           </a>
         </div>
       </div>
@@ -1370,14 +1637,14 @@
           <div class="card-label">Buy me a Bottle of Bleach</div>
           <div class="card-title">Support ObnoxiouslyNoxious</div>
         </div>
-        <span class="arrow">→</span>
+        <img class="arrow" src="img/arrow.png" alt="">
       </div>
       <div class="support-panel" id="supportPanel">
         <div class="support-panel-inner">
           <a class="support-link" href="https://ko-fi.com/obnoxiouslynoxious" target="_blank" rel="noopener">
             <img src="img/kofi.png" width="20" height="20" alt="Ko-Fi" style="border-radius:4px;">
             <span class="support-link-label">Ko-Fi</span>
-            <span class="arrow">→</span>
+            <img class="arrow" src="img/arrow.png" alt="">
           </a>
         </div>
       </div>
@@ -1392,7 +1659,7 @@
           <div class="card-label">Affiliate Partners</div>
           <div class="card-title">Partners</div>
         </div>
-        <span class="arrow">→</span>
+        <img class="arrow" src="img/arrow.png" alt="">
       </div>
       <div class="partners-panel" id="partnersPanel">
         <div class="partners-panel-inner">
@@ -1591,13 +1858,244 @@
     const ghToggle  = document.getElementById('ghToggle');
     ghToggle.addEventListener('click', () => ghWrapper.classList.toggle('open'));
 
+    // --- Bug Reports & Feedback -------------------------------------------
+    // Backend (NoxiousBot Worker) endpoints this section calls:
+    //   GET  /website/mods                    -> { mods: [{ name }] }
+    //   GET  /website/oauth/steam/start        -> begins the Steam OpenID
+    //        handshake in a popup; the popup postMessages
+    //        { type: 'br-steam-session', token, displayName } back to this
+    //        window on success, then closes itself.
+    //   POST /website/bug                      -> { token, turnstileToken,
+    //        mod, title, description, expectation, steps, version }
+    //        returns { issueUrl } on success, or { error } (4xx) on failure
+    //        (bad/expired session, rate limited, Turnstile failed, etc.)
+    // These routes don't exist yet as of this commit — see
+    // Docs/AI-Resources/plans/WebsiteBugReportsSteamSignIn.md. This section
+    // is built against that plan's exact contract so it lights up the
+    // moment the backend ships, with no frontend changes needed.
+    const BOT_WORKER_URL = 'https://noxious-bot.obnoxiouslynoxious.workers.dev';
+
+    // Cosmetic only (which thumbnail to show on mod select) — reuses the
+    // same images already shipped for the Steam Workshop grid above. Not
+    // the source of truth for which mods can be reported against; that's
+    // always whatever GET /website/mods actually returns.
+    const MOD_NAME_TO_SLUG = {
+      'Zombies Have Money': 'money',
+      'Zombies Have Ammo': 'ammo',
+      'Zombies Have Smokes': 'smokes',
+      'Random Spawn Locations': 'random-spawn',
+      'AEBS Imperial & Metric Display': 'aebs',
+      'Skill Master': 'skill-master',
+      'Auto-Drink Revert': 'auto-drink',
+      'NPC Tiles': 'npc',
+      'Daily Challenge System': 'dcs',
+    };
+
+    const brWrapper   = document.getElementById('brWrapper');
+    const brToggle    = document.getElementById('brToggle');
+    const brMod       = document.getElementById('brMod');
+    const brModPreview    = document.getElementById('brModPreview');
+    const brModPreviewImg = document.getElementById('brModPreviewImg');
+    const brModPreviewName = document.getElementById('brModPreviewName');
+    const brSteamBtn  = document.getElementById('brSteamBtn');
+    const brSignedIn  = document.getElementById('brSignedIn');
+    const brSteamName = document.getElementById('brSteamName');
+    const brSubmitBtn = document.getElementById('brSubmitBtn');
+    const brStatus    = document.getElementById('brStatus');
+
+    let brModsFetched = false;
+    let brSession = null; // { token, displayName } once signed in
+
+    brToggle.addEventListener('click', () => {
+      brWrapper.classList.toggle('open');
+      if (brWrapper.classList.contains('open') && !brModsFetched) {
+        brModsFetched = true;
+        fetchReportableMods();
+      }
+    });
+
+    async function fetchReportableMods() {
+      try {
+        const res  = await fetch(BOT_WORKER_URL + '/website/mods');
+        const data = await res.json();
+        populateModSelect(data.mods ?? []);
+      } catch (e) {
+        populateModSelect([]);
+      }
+    }
+
+    function populateModSelect(mods) {
+      if (!mods.length) {
+        brMod.innerHTML = '<option value="">Could not load mod list</option>';
+        return;
+      }
+      brMod.innerHTML = '<option value="">Select a mod…</option>' +
+        mods.map(m => `<option value="${escapeHtml(m.name)}">${escapeHtml(m.name)}</option>`).join('');
+      brMod.disabled = false;
+    }
+
+    brMod.addEventListener('change', () => {
+      const slug = MOD_NAME_TO_SLUG[brMod.value];
+      if (slug) {
+        brModPreviewImg.src = 'img/' + slug + '.png';
+        brModPreviewName.textContent = brMod.value;
+        brModPreview.classList.add('show');
+      } else {
+        brModPreview.classList.remove('show');
+      }
+    });
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, c => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
+      }[c]));
+    }
+
+    brSteamBtn.addEventListener('click', () => {
+      const popup = window.open(
+        BOT_WORKER_URL + '/website/oauth/steam/start',
+        'br-steam-signin',
+        'width=500,height=650'
+      );
+      brSteamBtn.disabled = true;
+      brSteamBtn.textContent = 'Waiting for Steam sign-in…';
+
+      const resetBtn = () => {
+        brSteamBtn.disabled = false;
+        brSteamBtn.innerHTML = '<img src="img/steam.png" width="16" height="16" alt="" style="object-fit:contain;">Sign in with Steam to submit';
+      };
+
+      // If the user closes the popup without completing sign-in, don't
+      // leave the button stuck in "waiting" forever.
+      const watchClosed = setInterval(() => {
+        if (popup && popup.closed) {
+          clearInterval(watchClosed);
+          if (!brSession) resetBtn();
+        }
+      }, 500);
+    });
+
+    window.addEventListener('message', (event) => {
+      if (event.origin !== new URL(BOT_WORKER_URL).origin) return;
+      const data = event.data || {};
+      if (data.type !== 'br-steam-session') return;
+
+      brSession = { token: data.token, displayName: data.displayName };
+      sessionStorage.setItem('br-steam-session', JSON.stringify(brSession));
+      showSignedIn();
+    });
+
+    function showSignedIn() {
+      brSteamBtn.style.display = 'none';
+      brSteamName.textContent = brSession.displayName;
+      brSignedIn.classList.add('show');
+      brSubmitBtn.disabled = false;
+    }
+
+    // Restore a still-fresh session across a page reload (e.g. the visitor
+    // signed in, then reloaded before submitting) — the backend still owns
+    // the actual expiry check; this is just so the UI doesn't ask them to
+    // sign in again unnecessarily. verifySession happens server-side on
+    // submit regardless, so trusting this client-side is fine.
+    try {
+      const saved = JSON.parse(sessionStorage.getItem('br-steam-session') || 'null');
+      if (saved && saved.token) { brSession = saved; showSignedIn(); }
+    } catch (e) {}
+
+    brSubmitBtn.addEventListener('click', async () => {
+      brStatus.className = 'br-status';
+
+      if (!brSession) {
+        return showBrStatus('error', 'Sign in with Steam first.');
+      }
+      if (!brMod.value) {
+        return showBrStatus('error', 'Select a mod.');
+      }
+      const title = document.getElementById('brTitle').value.trim();
+      const description = document.getElementById('brDescription').value.trim();
+      if (!title || !description) {
+        return showBrStatus('error', 'Title and description are required.');
+      }
+
+      // Client-side hint only — the server re-validates extension, MIME type,
+      // and size regardless, since this is trivially bypassable.
+      const file = document.getElementById('brFile').files[0];
+      if (file) {
+        const okType = /\.(txt|png)$/i.test(file.name) &&
+          (file.type === 'text/plain' || file.type === 'image/png');
+        if (!okType) {
+          return showBrStatus('error', 'Attachments must be a .txt log or a .png screenshot.');
+        }
+        if (file.size > 2 * 1024 * 1024) {
+          return showBrStatus('error', 'Attachment is too large (2MB max).');
+        }
+      }
+
+      // getResponse() throws (not returns falsy) if the widget never
+      // rendered — an invalid/misconfigured site key, the Turnstile script
+      // failing to load, etc. Confirmed live during testing: an uncaught
+      // throw here silently aborted the whole submit with zero feedback to
+      // the user, who'd see Submit do nothing at all.
+      let turnstileToken = '';
+      try {
+        turnstileToken = window.turnstile ? window.turnstile.getResponse('brTurnstile') : '';
+      } catch (e) {}
+      if (!turnstileToken) {
+        return showBrStatus('error', 'Please complete the verification challenge.');
+      }
+
+      brSubmitBtn.disabled = true;
+      brSubmitBtn.textContent = 'Submitting…';
+
+      try {
+        // FormData, not JSON — the file needs a multipart body. Don't set a
+        // Content-Type header manually: the browser fills in the correct
+        // multipart boundary itself, and overriding it breaks server parsing.
+        const formData = new FormData();
+        formData.append('token', brSession.token);
+        formData.append('turnstileToken', turnstileToken);
+        formData.append('mod', brMod.value);
+        formData.append('title', title);
+        formData.append('description', description);
+        formData.append('expectation', document.getElementById('brExpectation').value.trim());
+        formData.append('steps', document.getElementById('brSteps').value.trim());
+        formData.append('version', document.getElementById('brVersion').value.trim());
+        if (file) formData.append('file', file);
+
+        const res = await fetch(BOT_WORKER_URL + '/website/bug', {
+          method: 'POST',
+          body: formData,
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (!res.ok) {
+          showBrStatus('error', data.error || 'Something went wrong submitting your report. Please try again.');
+        } else {
+          showBrStatus('success', `Thanks! Your report was filed: <a href="${data.issueUrl}" target="_blank" rel="noopener">view on GitHub</a>.`);
+        }
+      } catch (e) {
+        showBrStatus('error', 'Could not reach the server. Please try again later.');
+      } finally {
+        brSubmitBtn.disabled = false;
+        brSubmitBtn.textContent = 'Submit Report';
+        try { if (window.turnstile) window.turnstile.reset('brTurnstile'); } catch (e) {}
+      }
+    });
+
+    function showBrStatus(kind, html) {
+      brStatus.className = 'br-status show ' + kind;
+      brStatus.innerHTML = html;
+    }
+
     const CARD_HASHES = {
-      about:   'aboutWrapper',
-      steam:   'steamWrapper',
-      github:  'ghWrapper',
-      pztools: 'pzWrapper',
-      contact: 'contactWrapper',
-      support: 'supportWrapper',
+      about:        'aboutWrapper',
+      steam:        'steamWrapper',
+      github:       'ghWrapper',
+      pztools:      'pzWrapper',
+      bugreport:    'brWrapper',
+      'bug-reports': 'brWrapper',
+      contact:      'contactWrapper',
+      support:      'supportWrapper',
     };
 
     function openFromHash() {
@@ -1608,6 +2106,7 @@
         if (el) {
           el.classList.add('open');
           if (hash === 'steam' && !steamFetched) { steamFetched = true; fetchMods(); }
+          if ((hash === 'bugreport' || hash === 'bug-reports') && !brModsFetched) { brModsFetched = true; fetchReportableMods(); }
           el.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       }
