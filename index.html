@@ -1586,7 +1586,7 @@
               Sign in with Steam to Submit
             </button>
             <div class="br-signed-in" id="brSignedIn">
-              Signed in as <strong id="brSteamName"></strong>
+              Signed in via Steam as <strong id="brSteamName"></strong>
             </div>
 
             <div class="cf-turnstile" id="brTurnstile" data-sitekey="0x4AAAAAAEZQFJKxIHmeH4bi" data-theme="dark" data-size="flexible" data-callback="onBrTurnstileSuccess" data-expired-callback="onBrTurnstileExpired" data-error-callback="onBrTurnstileExpired"></div>
@@ -1935,10 +1935,10 @@
 
     function populateModSelect(mods) {
       if (!mods.length) {
-        brMod.innerHTML = '<option value="">Could not load mod list</option>';
+        brMod.innerHTML = '<option value="">Unable to Load Mod List</option>';
         return;
       }
-      brMod.innerHTML = '<option value="">Select a mod…</option>' +
+      brMod.innerHTML = '<option value="">Select a Mod…</option>' +
         mods.map(m => `<option value="${escapeHtml(m.name)}">${escapeHtml(m.name)}</option>`).join('');
       brMod.disabled = false;
     }
@@ -1967,11 +1967,11 @@
         'width=500,height=650'
       );
       brSteamBtn.disabled = true;
-      brSteamBtn.textContent = 'Waiting for Steam sign-in…';
+      brSteamBtn.textContent = 'Waiting for Steam Sign In…';
 
       const resetBtn = () => {
         brSteamBtn.disabled = false;
-        brSteamBtn.innerHTML = '<img src="img/steam.png" width="16" height="16" alt="" style="object-fit:contain;">Sign in with Steam to submit';
+        brSteamBtn.innerHTML = '<img src="img/steam.png" width="16" height="16" alt="" style="object-fit:contain;">Sign in with Steam to Submit';
       };
 
       // If the user closes the popup without completing sign-in, don't
@@ -2015,15 +2015,15 @@
       brStatus.className = 'br-status';
 
       if (!brSession) {
-        return showBrStatus('error', 'Sign in with Steam first.');
+        return showBrStatus('error', 'Sign in with Steam.');
       }
       if (!brMod.value) {
-        return showBrStatus('error', 'Select a mod.');
+        return showBrStatus('error', 'Select a Mod.');
       }
       const title = document.getElementById('brTitle').value.trim();
       const description = document.getElementById('brDescription').value.trim();
       if (!title || !description) {
-        return showBrStatus('error', 'Title and description are required.');
+        return showBrStatus('error', 'Title and Description are required.');
       }
 
       // Client-side hint only — the server re-validates extension, MIME type,
@@ -2033,16 +2033,16 @@
         const okType = /\.(txt|png)$/i.test(file.name) &&
           (file.type === 'text/plain' || file.type === 'image/png');
         if (!okType) {
-          return showBrStatus('error', 'Attachments must be a .txt log or a .png screenshot.');
+          return showBrStatus('error', 'Attachments must be a .txt log or a .png image.');
         }
         if (file.size > 2 * 1024 * 1024) {
-          return showBrStatus('error', 'Attachment is too large (2MB max).');
+          return showBrStatus('error', 'Attachment is too Large (2MB max).');
         }
       }
 
       const turnstileToken = brTurnstileToken;
       if (!turnstileToken) {
-        return showBrStatus('error', 'Please complete the verification challenge.');
+        return showBrStatus('error', 'Please complete the Verification challenge.');
       }
 
       brSubmitBtn.disabled = true;
@@ -2070,12 +2070,12 @@
         const data = await res.json().catch(() => ({}));
 
         if (!res.ok) {
-          showBrStatus('error', data.error || 'Something went wrong submitting your report. Please try again.');
+          showBrStatus('error', data.error || 'Something went wrong submitting your Report. Please try again.');
         } else {
-          showBrStatus('success', `Thanks! Your report was filed: <a href="${data.issueUrl}" target="_blank" rel="noopener">view on GitHub</a>.`);
+          showBrStatus('success', `Thanks, your report has been Submitted! <a href="https://obnox.dev/discord" target="_blank" rel="noopener">Track it's progress on Discord</a>.`);
         }
       } catch (e) {
-        showBrStatus('error', 'Could not reach the server. Please try again later.');
+        showBrStatus('error', 'Unable to reach the server. Please try again later.');
       } finally {
         brSubmitBtn.disabled = false;
         brSubmitBtn.textContent = 'Submit Report';
