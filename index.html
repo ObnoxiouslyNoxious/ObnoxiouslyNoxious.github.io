@@ -1884,27 +1884,8 @@
     const ghToggle  = document.getElementById('ghToggle');
     ghToggle.addEventListener('click', () => ghWrapper.classList.toggle('open'));
 
-    // --- Bug Reports & Feedback -------------------------------------------
-    // Backend (NoxiousBot Worker) endpoints this section calls:
-    //   GET  /website/mods                    -> { mods: [{ name }] }
-    //   GET  /website/oauth/steam/start        -> begins the Steam OpenID
-    //        handshake in a popup; the popup postMessages
-    //        { type: 'br-steam-session', token, displayName } back to this
-    //        window on success, then closes itself.
-    //   POST /website/bug                      -> { token, turnstileToken,
-    //        mod, title, description, expectation, steps, version }
-    //        returns { issueUrl } on success, or { error } (4xx) on failure
-    //        (bad/expired session, rate limited, Turnstile failed, etc.)
-    // These routes don't exist yet as of this commit — see
-    // Docs/AI-Resources/plans/WebsiteBugReportsSteamSignIn.md. This section
-    // is built against that plan's exact contract so it lights up the
-    // moment the backend ships, with no frontend changes needed.
     const BOT_WORKER_URL = 'https://noxious-bot.obnoxiouslynoxious.workers.dev';
 
-    // Cosmetic only (which thumbnail to show on mod select) — reuses the
-    // same images already shipped for the Steam Workshop grid above. Not
-    // the source of truth for which mods can be reported against; that's
-    // always whatever GET /website/mods actually returns.
     const MOD_NAME_TO_SLUG = {
       'Zombies Have Money': 'money',
       'Zombies Have Ammo': 'ammo',
@@ -1932,13 +1913,8 @@
     const brStatus    = document.getElementById('brStatus');
 
     let brModsFetched = false;
-    let brSession = null; // { token, displayName } once signed in
+    let brSession = null;
 
-    // Captured via the widget's data-callback rather than polled with
-    // getResponse() at submit time — getResponse('brTurnstile') looking up
-    // an implicitly-rendered widget by its container's DOM id was unreliable
-    // in practice (confirmed live: widget showed "Success" but getResponse
-    // still returned empty), so the callback is the token's source of truth.
     let brTurnstileToken = '';
     window.onBrTurnstileSuccess = (token) => { brTurnstileToken = token; };
     window.onBrTurnstileExpired = () => { brTurnstileToken = ''; };
@@ -2002,8 +1978,6 @@
         brSteamBtn.innerHTML = '<img src="img/steam.png" width="16" height="16" alt="" style="object-fit:contain;">Sign in with Steam to Submit';
       };
 
-      // If the user closes the popup without completing sign-in, don't
-      // leave the button stuck in "waiting" forever.
       const watchClosed = setInterval(() => {
         if (popup && popup.closed) {
           clearInterval(watchClosed);
@@ -2029,11 +2003,6 @@
       brSubmitBtn.disabled = false;
     }
 
-    // Restore a still-fresh session across a page reload (e.g. the visitor
-    // signed in, then reloaded before submitting) — the backend still owns
-    // the actual expiry check; this is just so the UI doesn't ask them to
-    // sign in again unnecessarily. verifySession happens server-side on
-    // submit regardless, so trusting this client-side is fine.
     try {
       const saved = JSON.parse(sessionStorage.getItem('br-steam-session') || 'null');
       if (saved && saved.token) { brSession = saved; showSignedIn(); }
@@ -2054,8 +2023,6 @@
         return showBrStatus('error', 'Title and Description are required.');
       }
 
-      // Client-side hint only — the server re-validates extension, MIME type,
-      // and size regardless, since this is trivially bypassable.
       const file = document.getElementById('brFile').files[0];
       if (file) {
         const okType = /\.(txt|png)$/i.test(file.name) &&
@@ -2077,9 +2044,6 @@
       brSubmitBtn.textContent = 'Submitting…';
 
       try {
-        // FormData, not JSON — the file needs a multipart body. Don't set a
-        // Content-Type header manually: the browser fills in the correct
-        // multipart boundary itself, and overriding it breaks server parsing.
         const formData = new FormData();
         formData.append('token', brSession.token);
         formData.append('turnstileToken', turnstileToken);
