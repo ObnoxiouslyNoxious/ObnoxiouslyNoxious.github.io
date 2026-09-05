@@ -996,15 +996,18 @@
       text-transform: uppercase;
       letter-spacing: 0.04em;
       margin-bottom: 6px;
+      text-align: center;
     }
 
     .supporters-tier { margin-bottom: 8px; }
     .supporters-tier:last-child { margin-bottom: 0; }
 
     .tier-label {
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 4px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+      text-align: center;
     }
     .tier-label.tier-gold { color: #e0c05a; }
     .tier-label.tier-silver { color: #c7c7c7; }
@@ -1014,19 +1017,18 @@
       font-size: 13px;
       color: #e0e0e0;
       line-height: 1.6;
+      text-align: center;
     }
 
     .supporter-row {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 6px 0;
-      border-bottom: 1px solid #1a1a1a;
       font-size: 13px;
     }
-    .supporter-row:last-child { border-bottom: none; }
 
-    .supporter-name { color: #e0e0e0; }
+    .supporter-name { color: #e0e0e0; text-align: center; }
     .supporter-amount { color: #888888; font-size: 12px; }
 
     .supporter-empty {
@@ -2069,8 +2071,7 @@
           recent.forEach(s => {
             const row = document.createElement('div');
             row.className = 'supporter-row';
-            row.innerHTML = '<span class="supporter-name">' + s.name + '</span>'
-              + '<span class="supporter-amount">' + (s.amount || '') + '</span>';
+            row.innerHTML = '<span class="supporter-name">' + s.name + '</span>';
             list.appendChild(row);
           });
         }
