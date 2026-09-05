@@ -931,7 +931,109 @@
       transition: max-height 0.4s ease;
     }
 
-    .support-card-wrapper.open .support-panel { max-height: 200px; }
+    .support-card-wrapper.open .support-panel { max-height: 700px; overflow-y: auto; }
+
+    .kofi-sub-wrapper {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #212121;
+      border-radius: 9px;
+      overflow: hidden;
+    }
+
+    .kofi-sub-wrapper.open { border-color: #3a3a3a; }
+
+    .kofi-sub-toggle {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #161616;
+      padding: 10px 14px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+      font-size: 14px;
+      font-weight: 500;
+      color: #e0e0e0;
+    }
+
+    .kofi-sub-toggle:hover { background: #1c1c1c; }
+
+    .kofi-sub-toggle .arrow {
+      margin-left: auto;
+      opacity: 0.6;
+      font-size: 18px;
+      transition: opacity 0.15s, transform 0.2s;
+    }
+
+    .kofi-sub-wrapper.open .kofi-sub-toggle .arrow {
+      opacity: 1;
+      transform: rotate(90deg);
+    }
+
+    .kofi-sub-toggle:hover .arrow { opacity: 1; }
+
+    .kofi-sub-panel {
+      background: #0d0d0d;
+      border-top: 1px solid #1a1a1a;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+
+    .kofi-sub-wrapper.open .kofi-sub-panel { max-height: 600px; }
+
+    .kofi-sub-panel-inner {
+      padding: 12px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .supporters-section-label {
+      font-size: 11px;
+      color: #555555;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 6px;
+    }
+
+    .supporters-tier { margin-bottom: 8px; }
+    .supporters-tier:last-child { margin-bottom: 0; }
+
+    .tier-label {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .tier-label.tier-gold { color: #e0c05a; }
+    .tier-label.tier-silver { color: #c7c7c7; }
+    .tier-label.tier-bronze { color: #c98a4b; }
+
+    .tier-names {
+      font-size: 13px;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    .supporter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid #1a1a1a;
+      font-size: 13px;
+    }
+    .supporter-row:last-child { border-bottom: none; }
+
+    .supporter-name { color: #e0e0e0; }
+    .supporter-amount { color: #888888; font-size: 12px; }
+
+    .supporter-empty {
+      font-size: 13px;
+      color: #555555;
+      font-style: italic;
+    }
 
     .support-panel-inner {
       padding: 10px 12px 12px;
@@ -1521,43 +1623,6 @@
         </div>
       </div>
 
-      <div class="pz-card-wrapper" id="pzWrapper">
-        <div class="pz-toggle" id="pzToggle">
-            <div class="icon" style="background:#212121;">
-            <img src="img/tool.png" width="22" height="22" alt="PZ Tools" style="border-radius:4px;object-fit:contain;">
-          </div>
-          <div class="card-text">
-            <div class="card-label">Utilities</div>
-            <div class="card-title">Project Zomboid Tools</div>
-          </div>
-          <img class="arrow" src="img/arrow.png" alt="">
-        </div>
-        <div class="pz-panel" id="pzPanel">
-          <div class="pz-panel-inner">
-            <a class="pz-link" href="https://obnox.dev/docs" target="_blank" rel="noopener">
-              <img src="img/noxdocs-favicon.png" width="20" height="20" alt="NoxDocs" style="border-radius:4px;object-fit:contain;">
-              <span class="pz-link-label">NoxDocs Mod Documentation</span>
-              <img class="arrow" src="img/arrow.png" alt="">
-            </a>
-            <a class="pz-link" href="https://obnox.dev/DynamicChallengeBot/" target="_blank" rel="noopener">
-              <img src="img/dcsicon.png" width="20" height="20" alt="Dynamic Challenges" style="object-fit:contain;">
-              <span class="pz-link-label">View Today's Dynamic Challenges</span>
-              <img class="arrow" src="img/arrow.png" alt="">
-            </a>
-            <a class="pz-link" href="https://obnoxiouslynoxious.github.io/RSLMapProject" target="_blank" rel="noopener">
-              <img src="img/map.png" width="20" height="20" alt="Map" style="object-fit:contain;">
-              <span class="pz-link-label">Random Spawn Locations Map Project</span>
-              <img class="arrow" src="img/arrow.png" alt="">
-            </a>
-            <a class="pz-link" href="https://obnoxiouslynoxious.github.io/ProjectCalcoid" target="_blank" rel="noopener">
-              <img src="img/calculator.png" width="20" height="20" alt="Calculator" style="object-fit:contain;">
-              <span class="pz-link-label">Project Calcoid (Coords Converter)</span>
-              <img class="arrow" src="img/arrow.png" alt="">
-            </a>
-          </div>
-        </div>
-      </div>
-
       <div class="br-card-wrapper" id="brWrapper">
         <div class="br-toggle" id="brToggle">
           <div class="icon" style="background:#212121;">
@@ -1635,6 +1700,70 @@
         </div>
       </div>
 
+      <div class="pz-card-wrapper" id="pzWrapper">
+        <div class="pz-toggle" id="pzToggle">
+            <div class="icon" style="background:#212121;">
+            <img src="img/tool.png" width="22" height="22" alt="PZ Tools" style="border-radius:4px;object-fit:contain;">
+          </div>
+          <div class="card-text">
+            <div class="card-label">Utilities</div>
+            <div class="card-title">Project Zomboid Tools</div>
+          </div>
+          <img class="arrow" src="img/arrow.png" alt="">
+        </div>
+        <div class="pz-panel" id="pzPanel">
+          <div class="pz-panel-inner">
+            <a class="pz-link" href="https://obnox.dev/docs" target="_blank" rel="noopener">
+              <img src="img/noxdocs-favicon.png" width="20" height="20" alt="NoxDocs" style="border-radius:4px;object-fit:contain;">
+              <span class="pz-link-label">NoxDocs Mod Documentation</span>
+              <img class="arrow" src="img/arrow.png" alt="">
+            </a>
+            <a class="pz-link" href="https://obnox.dev/DynamicChallengeBot/" target="_blank" rel="noopener">
+              <img src="img/dcsicon.png" width="20" height="20" alt="Dynamic Challenges" style="object-fit:contain;">
+              <span class="pz-link-label">View Today's Dynamic Challenges</span>
+              <img class="arrow" src="img/arrow.png" alt="">
+            </a>
+            <a class="pz-link" href="https://obnoxiouslynoxious.github.io/RSLMapProject" target="_blank" rel="noopener">
+              <img src="img/map.png" width="20" height="20" alt="Map" style="object-fit:contain;">
+              <span class="pz-link-label">Random Spawn Locations Map Project</span>
+              <img class="arrow" src="img/arrow.png" alt="">
+            </a>
+            <a class="pz-link" href="https://obnoxiouslynoxious.github.io/ProjectCalcoid" target="_blank" rel="noopener">
+              <img src="img/calculator.png" width="20" height="20" alt="Calculator" style="object-fit:contain;">
+              <span class="pz-link-label">Project Calcoid (Coords Converter)</span>
+              <img class="arrow" src="img/arrow.png" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pz-card-wrapper" id="speedrunWrapper">
+        <div class="pz-toggle" id="speedrunToggle">
+          <div class="icon" style="background:#212121;">
+            <img src="img/clock.png" width="22" height="22" alt="Speedruns" style="border-radius:4px;object-fit:contain;">
+          </div>
+          <div class="card-text">
+            <div class="card-label">Personal Bests &amp; Uploads</div>
+            <div class="card-title">Project Zomboid Speedruns</div>
+          </div>
+          <img class="arrow" src="img/arrow.png" alt="">
+        </div>
+        <div class="pz-panel" id="speedrunPanel">
+          <div class="pz-panel-inner">
+            <a class="pz-link" href="https://www.speedrun.com/users/ObnoxiouslyNoxious" target="_blank" rel="noopener">
+              <img src="img/trophygold.png" width="20" height="20" alt="Speedrun.com" style="border-radius:4px;object-fit:contain;">
+              <span class="pz-link-label">View Speedrun.com Profile</span>
+              <img class="arrow" src="img/arrow.png" alt="">
+            </a>
+            <a class="pz-link" href="https://pz-speedrun-upload-portal.pages.dev/" target="_blank" rel="noopener">
+              <img src="img/paperclip.png" width="20" height="20" alt="Upload Portal" style="border-radius:4px;object-fit:contain;">
+              <span class="pz-link-label">PZ Speedrun Upload Portal</span>
+              <img class="arrow" src="img/arrow.png" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <div class="contact-card-wrapper" id="contactWrapper">
@@ -1677,11 +1806,38 @@
       </div>
       <div class="support-panel" id="supportPanel">
         <div class="support-panel-inner">
-          <a class="support-link" href="https://ko-fi.com/obnoxiouslynoxious" target="_blank" rel="noopener">
-            <img src="img/kofi.png" width="20" height="20" alt="Ko-Fi" style="border-radius:4px;">
-            <span class="support-link-label">Ko-Fi</span>
-            <img class="arrow" src="img/arrow.png" alt="">
-          </a>
+          <div class="kofi-sub-wrapper" id="kofiSubWrapper">
+            <div class="kofi-sub-toggle" id="kofiSubToggle">
+              <img src="img/kofi.png" width="20" height="20" alt="Ko-Fi" style="border-radius:4px;">
+              <span class="support-link-label">Ko-Fi</span>
+              <img class="arrow" src="img/arrow.png" alt="">
+            </div>
+            <div class="kofi-sub-panel" id="kofiSubPanel">
+              <div class="kofi-sub-panel-inner">
+                <a class="support-link" href="https://ko-fi.com/obnoxiouslynoxious" target="_blank" rel="noopener">
+                  <img src="img/kofi.png" width="20" height="20" alt="Ko-Fi" style="border-radius:4px;">
+                  <span class="support-link-label">Support ObnoxiouslyNoxious on Ko-Fi</span>
+                  <img class="arrow" src="img/arrow.png" alt="">
+                </a>
+                <div class="supporters-tier" id="tier-gold">
+                  <div class="tier-label tier-gold">Gold Subscribers</div>
+                  <div class="tier-names" id="names-gold"></div>
+                </div>
+                <div class="supporters-tier" id="tier-silver">
+                  <div class="tier-label tier-silver">Silver Subscribers</div>
+                  <div class="tier-names" id="names-silver"></div>
+                </div>
+                <div class="supporters-tier" id="tier-bronze">
+                  <div class="tier-label tier-bronze">Bronze Subscribers</div>
+                  <div class="tier-names" id="names-bronze"></div>
+                </div>
+                <div>
+                  <div class="supporters-section-label">Recent Supporters</div>
+                  <div id="recent-supporters"></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1719,6 +1875,7 @@
 
   </div>
 
+  <script src="json/supporters.js"></script>
   <script>
     const WORKER_URL = 'https://steam-stats-proxy.obnoxiouslynoxious.workers.dev';
 
@@ -1880,6 +2037,48 @@
     const supportToggle  = document.getElementById('supportToggle');
     supportToggle.addEventListener('click', () => supportWrapper.classList.toggle('open'));
 
+    const kofiSubWrapper = document.getElementById('kofiSubWrapper');
+    const kofiSubToggle  = document.getElementById('kofiSubToggle');
+    kofiSubToggle.addEventListener('click', () => kofiSubWrapper.classList.toggle('open'));
+
+    function renderSupporters() {
+      const data = window.SUPPORTERS_DATA;
+      if (!data) return;
+
+      const tiers = { gold: 'names-gold', silver: 'names-silver', bronze: 'names-bronze' };
+      for (const tier in tiers) {
+        const el = document.getElementById(tiers[tier]);
+        const wrapper = document.getElementById('tier-' + tier);
+        if (!el || !wrapper) continue;
+        const names = (data.subscribers && data.subscribers[tier]) || [];
+        if (names.length === 0) {
+          wrapper.style.display = 'none';
+        } else {
+          wrapper.style.display = '';
+          el.innerHTML = names.join('<br>');
+        }
+      }
+
+      const list = document.getElementById('recent-supporters');
+      if (list) {
+        list.innerHTML = '';
+        const recent = data.recent || [];
+        if (recent.length === 0) {
+          list.innerHTML = '<div class="supporter-empty">No supporters yet</div>';
+        } else {
+          recent.forEach(s => {
+            const row = document.createElement('div');
+            row.className = 'supporter-row';
+            row.innerHTML = '<span class="supporter-name">' + s.name + '</span>'
+              + '<span class="supporter-amount">' + (s.amount || '') + '</span>';
+            list.appendChild(row);
+          });
+        }
+      }
+    }
+
+    renderSupporters();
+
     const partnersWrapper = document.getElementById('partners');
     const partnersToggle  = document.getElementById('partnersToggle');
     partnersToggle.addEventListener('click', () => partnersWrapper.classList.toggle('open'));
@@ -1892,6 +2091,10 @@
     const pzWrapper = document.getElementById('pzWrapper');
     const pzToggle  = document.getElementById('pzToggle');
     pzToggle.addEventListener('click', () => pzWrapper.classList.toggle('open'));
+
+    const speedrunWrapper = document.getElementById('speedrunWrapper');
+    const speedrunToggle  = document.getElementById('speedrunToggle');
+    speedrunToggle.addEventListener('click', () => speedrunWrapper.classList.toggle('open'));
 
     const ghWrapper = document.getElementById('ghWrapper');
     const ghToggle  = document.getElementById('ghToggle');
@@ -2100,6 +2303,7 @@
       steam:        'steamWrapper',
       github:       'ghWrapper',
       pztools:      'pzWrapper',
+      speedruns:    'speedrunWrapper',
       bugreport:    'brWrapper',
       'bug-reports': 'brWrapper',
       contact:      'contactWrapper',
