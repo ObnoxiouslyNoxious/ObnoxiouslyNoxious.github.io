@@ -1961,10 +1961,13 @@
         totalSubs += parseInt(mod.subscriptions ?? 0, 10);
         totalFavs += parseInt(mod.favorited ?? 0, 10);
         totalLikes += parseInt(mod.votes_up ?? 0, 10);
+        const localFallback = 'img/' + slugify(mod.id) + '.png';
+        const localFallbackAbs = new URL(localFallback, location.href).href;
+        const thumbSrc = mod.preview_url || localFallback;
         return `
           <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=${mod.id}" target="_blank" rel="noopener">
-            <img class="mod-thumb" src="img/${slugify(mod.id)}.png" alt="${mod.name}"
-                 loading="lazy" onerror="this.style.background='#212121';this.removeAttribute('src')">
+            <img class="mod-thumb" src="${thumbSrc}" alt="${mod.name}" data-fallback="${localFallbackAbs}"
+                 loading="lazy" onerror="if(!this.dataset.triedFallback&&this.src!==this.dataset.fallback){this.dataset.triedFallback='1';this.src=this.dataset.fallback}else{this.onerror=null;this.style.background='#212121';this.removeAttribute('src')}">
             <div class="mod-body">
               <div class="mod-name">${mod.name}</div>
               <div class="mod-stats">
