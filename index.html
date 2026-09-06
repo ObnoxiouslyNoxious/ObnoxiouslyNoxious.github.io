@@ -1672,6 +1672,16 @@
             </div>
 
             <div class="br-field">
+              <label class="br-label" for="brTopology">Topology<span class="req">*</span></label>
+              <select class="br-select" id="brTopology">
+                <option value="" disabled selected>Select a Topology…</option>
+                <option value="Singleplayer">Singleplayer</option>
+                <option value="Hosted Multiplayer">Hosted Multiplayer</option>
+                <option value="Dedicated Multiplayer">Dedicated Multiplayer</option>
+              </select>
+            </div>
+
+            <div class="br-field">
               <label class="br-label" for="brVersion">Mod & Game Version<span class="opt"> (Optional)</span></label>
               <input class="br-input" id="brVersion" type="text" maxlength="100" placeholder="e.g. Game Version B42.20.2 // Mod Version 1.0.5">
             </div>
@@ -2124,6 +2134,7 @@
     const brWrapper   = document.getElementById('brWrapper');
     const brToggle    = document.getElementById('brToggle');
     const brMod       = document.getElementById('brMod');
+    const brTopology  = document.getElementById('brTopology');
     const brModPreview    = document.getElementById('brModPreview');
     const brModPreviewImg = document.getElementById('brModPreviewImg');
     const brModPreviewName = document.getElementById('brModPreviewName');
@@ -2238,6 +2249,9 @@
       if (!brMod.value) {
         return showBrStatus('error', 'Select a Mod.');
       }
+      if (!brTopology.value) {
+        return showBrStatus('error', 'Select a Topology.');
+      }
       const title = document.getElementById('brTitle').value.trim();
       const description = document.getElementById('brDescription').value.trim();
       if (!title || !description) {
@@ -2269,6 +2283,7 @@
         formData.append('token', brSession.token);
         formData.append('turnstileToken', turnstileToken);
         formData.append('mod', brMod.value);
+        formData.append('topology', brTopology.value);
         formData.append('title', title);
         formData.append('description', description);
         formData.append('expectation', document.getElementById('brExpectation').value.trim());
