@@ -1660,6 +1660,17 @@
             </div>
 
             <div class="br-field">
+              <label class="br-label" for="brSeverity">Severity<span class="req">*</span></label>
+              <select class="br-select" id="brSeverity">
+                <option value="" disabled selected>Select a Severity…</option>
+                <option value="Critical">Critical: Crashes / Freezes Game, Save Corruption, Data Loss</option>
+                <option value="High">High: Core Feature Broken, Mod Unusable</option>
+                <option value="Medium">Medium: Side Feature Broken, Mod Somewhat Usable</option>
+                <option value="Low">Low: Errors but Mod still Functions, Visual Issues</option>
+              </select>
+            </div>
+
+            <div class="br-field">
               <label class="br-label" for="brTitle">Title<span class="req">*</span></label>
               <input class="br-input" id="brTitle" type="text" maxlength="120" placeholder="Short summary of the Issue / Feedback">
             </div>
@@ -2143,6 +2154,7 @@
     const brWrapper   = document.getElementById('brWrapper');
     const brToggle    = document.getElementById('brToggle');
     const brMod       = document.getElementById('brMod');
+    const brSeverity  = document.getElementById('brSeverity');
     const brTopology  = document.getElementById('brTopology');
     const brModPreview    = document.getElementById('brModPreview');
     const brModPreviewImg = document.getElementById('brModPreviewImg');
@@ -2258,6 +2270,9 @@
       if (!brMod.value) {
         return showBrStatus('error', 'Select a Mod.');
       }
+      if (!brSeverity.value) {
+        return showBrStatus('error', 'Select a Severity.');
+      }
       if (!brTopology.value) {
         return showBrStatus('error', 'Select a Topology.');
       }
@@ -2292,6 +2307,7 @@
         formData.append('token', brSession.token);
         formData.append('turnstileToken', turnstileToken);
         formData.append('mod', brMod.value);
+        formData.append('severity', brSeverity.value);
         formData.append('topology', brTopology.value);
         formData.append('title', title);
         formData.append('description', description);
