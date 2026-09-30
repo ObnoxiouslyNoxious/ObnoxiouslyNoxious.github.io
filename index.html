@@ -469,6 +469,11 @@
       font-weight: 600;
       color: #e0e0e0;
       line-height: 1.3;
+      height: calc(1.3em * 2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
     .mod-stars {
@@ -485,6 +490,23 @@
       color: #888888;
       text-transform: uppercase;
       letter-spacing: 0.03em;
+    }
+
+    .mod-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      align-self: center;
+      font-size: 9px;
+      font-weight: 700;
+      color: #999999;
+      background: #123a15;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 999px;
+      padding: 1px 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
     }
 
     
@@ -1992,7 +2014,17 @@
       return '<span class="stars-on">' + '★'.repeat(r.stars) + '</span><span class="stars-off">' + '★'.repeat(5 - r.stars) + '</span>';
     }
 
-    
+    function parseModTitle(raw) {
+      const m = String(raw || '').match(/^\s*\[([^\]]+)\]\s*(.*?)\s*\[([^\]]+)\]\s*$/);
+      if (!m) return { tag: null, name: raw, topology: null };
+      return { tag: m[1], name: m[2], topology: m[3] };
+    }
+
+    const CARD_NAME_OVERRIDES = {
+      '3752111970': 'Dynamic Challenges',
+    };
+
+
     const steamWrapper = document.getElementById('steamWrapper');
     const steamToggle  = document.getElementById('steamToggle');
     let steamFetched   = false;
@@ -2042,12 +2074,16 @@
         const localFallbackAbs = new URL(localFallback, location.href).href;
         const thumbSrc = mod.preview_url || localFallback;
         const rating = starRating(mod.votes_up, mod.votes_down);
+        const parsed = parseModTitle(mod.name);
+        const cardName = CARD_NAME_OVERRIDES[mod.id] || parsed.name;
         return `
           <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=${mod.id}" target="_blank" rel="noopener">
             <img class="mod-thumb" src="${thumbSrc}" alt="${mod.name}" data-fallback="${localFallbackAbs}"
                  loading="lazy" onerror="if(!this.dataset.triedFallback&&this.src!==this.dataset.fallback){this.dataset.triedFallback='1';this.src=this.dataset.fallback}else{this.onerror=null;this.style.background='#212121';this.removeAttribute('src')}">
             <div class="mod-body">
-              <div class="mod-name">${mod.name}</div>
+              ${parsed.tag ? `<div class="mod-pill">${parsed.tag}</div>` : ''}
+              <div class="mod-name">${cardName}</div>
+              ${parsed.topology ? `<div class="mod-pill">${parsed.topology}</div>` : ''}
               <div class="mod-stars" title="Steam star rating (${rating.total} ratings${rating.rated ? '' : ', needs 25 to be rated'})">${starsHTML(rating)}</div>
               <div class="mod-stats">
                 <span class="stat" title="Unique Visitors">
