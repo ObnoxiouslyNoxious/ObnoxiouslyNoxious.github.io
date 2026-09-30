@@ -492,11 +492,16 @@
       letter-spacing: 0.03em;
     }
 
+    .mod-tags-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
     .mod-pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      align-self: center;
       font-size: 9px;
       font-weight: 700;
       color: #999999;
@@ -509,7 +514,11 @@
       white-space: nowrap;
     }
 
-    
+    .mod-pill:empty {
+      visibility: hidden;
+    }
+
+
     .mod-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -2081,9 +2090,11 @@
             <img class="mod-thumb" src="${thumbSrc}" alt="${mod.name}" data-fallback="${localFallbackAbs}"
                  loading="lazy" onerror="if(!this.dataset.triedFallback&&this.src!==this.dataset.fallback){this.dataset.triedFallback='1';this.src=this.dataset.fallback}else{this.onerror=null;this.style.background='#212121';this.removeAttribute('src')}">
             <div class="mod-body">
-              ${parsed.tag ? `<div class="mod-pill">${parsed.tag}</div>` : ''}
+              <div class="mod-tags-row">
+                <span class="mod-pill">${parsed.tag || ''}</span>
+                <span class="mod-pill">${parsed.topology || ''}</span>
+              </div>
               <div class="mod-name">${cardName}</div>
-              ${parsed.topology ? `<div class="mod-pill">${parsed.topology}</div>` : ''}
               <div class="mod-stars" title="Steam star rating (${rating.total} ratings${rating.rated ? '' : ', needs 25 to be rated'})">${starsHTML(rating)}</div>
               <div class="mod-stats">
                 <span class="stat" title="Unique Visitors">
