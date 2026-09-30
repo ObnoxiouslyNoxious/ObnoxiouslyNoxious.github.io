@@ -514,6 +514,10 @@
       white-space: nowrap;
     }
 
+    .mod-pill span {
+      transform: translateY(-1px);
+    }
+
     .mod-pill:empty {
       visibility: hidden;
     }
@@ -2091,8 +2095,8 @@
                  loading="lazy" onerror="if(!this.dataset.triedFallback&&this.src!==this.dataset.fallback){this.dataset.triedFallback='1';this.src=this.dataset.fallback}else{this.onerror=null;this.style.background='#212121';this.removeAttribute('src')}">
             <div class="mod-body">
               <div class="mod-tags-row">
-                <span class="mod-pill">${parsed.tag || ''}</span>
-                <span class="mod-pill">${parsed.topology || ''}</span>
+                <span class="mod-pill">${parsed.tag ? `<span>${parsed.tag}</span>` : ''}</span>
+                <span class="mod-pill">${parsed.topology ? `<span>${parsed.topology}</span>` : ''}</span>
               </div>
               <div class="mod-name">${cardName}</div>
               <div class="mod-stars" title="Steam star rating (${rating.total} ratings${rating.rated ? '' : ', needs 25 to be rated'})">${starsHTML(rating)}</div>
