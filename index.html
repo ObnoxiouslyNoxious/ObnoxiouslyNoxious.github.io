@@ -1700,6 +1700,14 @@
             </div>
 
             <div class="br-field">
+              <label class="br-label" for="brType">Bug Report or Feedback?<span class="req">*</span></label>
+              <select class="br-select" id="brType">
+                <option value="Bug Report" selected>Bug Report</option>
+                <option value="Feedback">Feedback</option>
+              </select>
+            </div>
+
+            <div class="br-field" id="brSeverityField">
               <label class="br-label" for="brSeverity">Severity<span class="req">*</span></label>
               <select class="br-select" id="brSeverity">
                 <option value="" disabled selected>Select a Severity…</option>
@@ -1763,7 +1771,7 @@
 
             <div class="cf-turnstile" id="brTurnstile" data-sitekey="0x4AAAAAAEZQFJKxIHmeH4bi" data-theme="dark" data-size="flexible" data-callback="onBrTurnstileSuccess" data-expired-callback="onBrTurnstileExpired" data-error-callback="onBrTurnstileExpired"></div>
 
-            <button class="br-submit-btn" id="brSubmitBtn" type="button" disabled>Submit Report</button>
+            <button class="br-submit-btn" id="brSubmitBtn" type="button" disabled>Submit Bug Report</button>
 
             <div class="br-status" id="brStatus"></div>
 
@@ -2226,7 +2234,9 @@
     const brWrapper   = document.getElementById('brWrapper');
     const brToggle    = document.getElementById('brToggle');
     const brMod       = document.getElementById('brMod');
+    const brType      = document.getElementById('brType');
     const brSeverity  = document.getElementById('brSeverity');
+    const brSeverityField = document.getElementById('brSeverityField');
     const brTopology  = document.getElementById('brTopology');
     const brModPreview    = document.getElementById('brModPreview');
     const brModPreviewImg = document.getElementById('brModPreviewImg');
@@ -2271,6 +2281,11 @@
         mods.map(m => `<option value="${escapeHtml(m.name)}">${escapeHtml(m.name)}</option>`).join('');
       brMod.disabled = false;
     }
+
+    brType.addEventListener('change', () => {
+      brSeverityField.style.display = brType.value === 'Feedback' ? 'none' : '';
+      brSubmitBtn.textContent = brType.value === 'Feedback' ? 'Submit Feedback' : 'Submit Bug Report';
+    });
 
     brMod.addEventListener('change', () => {
       const slug = MOD_NAME_TO_SLUG[brMod.value];
@@ -2342,7 +2357,7 @@
       if (!brMod.value) {
         return showBrStatus('error', 'Select a Mod.');
       }
-      if (!brSeverity.value) {
+      if (brType.value === 'Bug Report' && !brSeverity.value) {
         return showBrStatus('error', 'Select a Severity.');
       }
       if (!brTopology.value) {
@@ -2373,13 +2388,15 @@
 
       brSubmitBtn.disabled = true;
       brSubmitBtn.textContent = 'Submitting…';
+      const isFeedback = brType.value === 'Feedback';
 
       try {
         const formData = new FormData();
         formData.append('token', brSession.token);
         formData.append('turnstileToken', turnstileToken);
         formData.append('mod', brMod.value);
-        formData.append('severity', brSeverity.value);
+        formData.append('reportType', brType.value);
+        if (brType.value === 'Bug Report') formData.append('severity', brSeverity.value);
         formData.append('topology', brTopology.value);
         formData.append('title', title);
         formData.append('description', description);
@@ -2397,13 +2414,13 @@
         if (!res.ok) {
           showBrStatus('error', data.error || 'Something went wrong submitting your Report. Please try again.');
         } else {
-          showBrStatus('success', `Thanks, your report has been Submitted! <a href="https://obnox.dev/discord" target="_blank" rel="noopener">Track it's progress on Discord</a>.`);
+          showBrStatus('success', `Thanks, your ${isFeedback ? 'feedback' : 'report'} has been Submitted! <a href="https://obnox.dev/discord" target="_blank" rel="noopener">Track it's progress on Discord</a>.`);
         }
       } catch (e) {
         showBrStatus('error', 'Unable to reach the server. Please try again later.');
       } finally {
         brSubmitBtn.disabled = false;
-        brSubmitBtn.textContent = 'Submit Report';
+        brSubmitBtn.textContent = brType.value === 'Feedback' ? 'Submit Feedback' : 'Submit Bug Report';
         brTurnstileToken = '';
         try { if (window.turnstile) window.turnstile.reset('brTurnstile'); } catch (e) {}
       }
