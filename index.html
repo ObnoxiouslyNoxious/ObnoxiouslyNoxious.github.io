@@ -1748,6 +1748,14 @@
               </select>
             </div>
 
+            <div class="br-field" id="brHofField">
+              <label class="br-label" for="brHof">Add your Steam/Discord name to the Bug Hunters Hall of Fame?</label>
+              <select class="br-select" id="brHof">
+                <option value="no" selected>No thanks</option>
+                <option value="yes">Yes - add my name</option>
+              </select>
+            </div>
+
             <div class="br-field">
               <label class="br-label" for="brVersion">Mod & Game Version<span class="opt"> (Optional)</span></label>
               <input class="br-input" id="brVersion" type="text" maxlength="100" placeholder="e.g. Game Version B42.20.2 // Mod Version 1.0.5">
@@ -2284,6 +2292,7 @@
 
     brType.addEventListener('change', () => {
       brSeverityField.style.display = brType.value === 'Feedback' ? 'none' : '';
+      document.getElementById('brHofField').style.display = brType.value === 'Feedback' ? 'none' : '';
       brSubmitBtn.textContent = brType.value === 'Feedback' ? 'Submit Feedback' : 'Submit Bug Report';
     });
 
@@ -2398,6 +2407,7 @@
         formData.append('reportType', brType.value);
         if (brType.value === 'Bug Report') formData.append('severity', brSeverity.value);
         formData.append('topology', brTopology.value);
+        if (brType.value === 'Bug Report') formData.append('hof', document.getElementById('brHof').value);
         formData.append('title', title);
         formData.append('description', description);
         formData.append('expectation', document.getElementById('brExpectation').value.trim());
