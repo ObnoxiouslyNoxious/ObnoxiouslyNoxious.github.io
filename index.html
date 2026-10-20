@@ -4,19 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ObnoxiouslyNoxious</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="img/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <meta name="description" content="Pungent Stench, Potent Code">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://obnox.dev/">
   <meta property="og:title" content="ObnoxiouslyNoxious">
   <meta property="og:description" content="Pungent Stench, Potent Code">
-  <meta property="og:image" content="https://obnox.dev/img/obnox.png">
+  <meta property="og:image" content="https://obnox.dev/img/obnox-share.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="ObnoxiouslyNoxious">
   <meta name="twitter:description" content="Pungent Stench, Potent Code">
-  <meta name="twitter:image" content="https://obnox.dev/img/obnox.png">
+  <meta name="twitter:image" content="https://obnox.dev/img/obnox-share.png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -447,13 +448,32 @@
       transform: translateY(-2px);
     }
 
+    .mod-thumb-wrap {
+      position: relative;
+    }
+
     .mod-thumb {
       width: 100%;
+      height: auto;
       aspect-ratio: 1 / 1;
       object-fit: cover;
       display: block;
       background: #212121;
     }
+
+    .mod-thumb-anim {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+
+    .mod-thumb-wrap.playing .mod-thumb-anim { opacity: 1; }
 
     .mod-body {
       padding: 8px 8px 6px;
@@ -1389,6 +1409,16 @@
     .br-status.error { background: #2a1414; border: 1px solid #4a1e1e; color: #e08a8a; }
     .br-status a { color: inherit; font-weight: 600; }
 
+    .footer-logo {
+      width: 28px;
+      height: 28px;
+      opacity: 0.35;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .footer-logo:hover { opacity: 1; }
+
     footer {
       margin-top: 0;
       text-align: center;
@@ -1409,7 +1439,7 @@
     <div class="about-card-wrapper" id="aboutWrapper">
       <div class="about-toggle" id="aboutToggle">
         <div class="icon" style="background:#212121;">
-          <img src="img/obnox.png" width="34" height="34" alt="About" style="object-fit:contain;">
+          <img src="img/obnox-icon-circle.png" width="24" height="24" alt="About" style="object-fit:contain;">
         </div>
         <div class="card-text">
           <div class="card-label">About</div>
@@ -1475,189 +1505,7 @@
             <div class="mod-grid-loading" id="modGridLoading">
               <div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div><div class="mod-skeleton"><div class="mod-skeleton-img"></div><div class="mod-skeleton-body"><div class="mod-skeleton-line"></div><div class="mod-skeleton-line short"></div></div></div>
             </div>
-            <div class="mod-grid" id="modGrid" style="display:none;">
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3737205872" target="_blank" rel="noopener" data-id="3737205872">
-                <img class="mod-thumb" src="img/auto-drink.png" alt="Auto-Drink Revert" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">Auto-Drink Revert</div>
-                  <div class="mod-tag">B42 · SP/MP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3792887660" target="_blank" rel="noopener" data-id="3792887660">
-                <img class="mod-thumb" src="img/auto-drink-expanded.png" alt="Auto-Drink Expanded" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">Auto-Drink Expanded</div>
-                  <div class="mod-tag">B42 · SP/MP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3792888505" target="_blank" rel="noopener" data-id="3792888505">
-                <img class="mod-thumb" src="img/auto-drunk.png" alt="Auto-Drunk" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">Auto-Drunk</div>
-                  <div class="mod-tag">B42 · SP/MP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3736268686" target="_blank" rel="noopener" data-id="3736268686">
-                <img class="mod-thumb" src="img/skill-master.png" alt="Skill Master" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">Skill Master</div>
-                  <div class="mod-tag">B42 · SP/MP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3733578471" target="_blank" rel="noopener" data-id="3733578471">
-                <img class="mod-thumb" src="img/aebs.png" alt="AEBS Imperial &amp; Metric Display" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">AEBS Imperial &amp; Metric Display</div>
-                  <div class="mod-tag">B42 · SP/MP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3730705272" target="_blank" rel="noopener" data-id="3730705272">
-                <img class="mod-thumb" src="img/random-spawn.png" alt="Random Spawn Locations" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">Random Spawn Locations</div>
-                  <div class="mod-tag">B42 · SPMP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3728443049" target="_blank" rel="noopener" data-id="3728443049">
-                <img class="mod-thumb" src="img/smokes.png" alt="Zombies Have Smokes" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">Zombies Have Smokes</div>
-                  <div class="mod-tag">B42 · SP/MP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3728283972" target="_blank" rel="noopener" data-id="3728283972">
-                <img class="mod-thumb" src="img/ammo.png" alt="Zombies Have Ammo" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">Zombies Have Ammo</div>
-                  <div class="mod-tag">B42 · SP/MP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3728275018" target="_blank" rel="noopener" data-id="3728275018">
-                <img class="mod-thumb" src="img/money.png" alt="Zombies Have Money" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">Zombies Have Money</div>
-                  <div class="mod-tag">B42 · SP/MP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3752111970" target="_blank" rel="noopener" data-id="3752111970">
-                <img class="mod-thumb" src="img/DCS.png" alt="Dynamic Challenges &amp; Leaderboard" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">Dynamic Challenges &amp; Leaderboard</div>
-                  <div class="mod-tag">B42 · SP/MP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3795485367" target="_blank" rel="noopener" data-id="3795485367">
-                <img class="mod-thumb" src="img/deadsplit.png" alt="DeadSplit" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">DeadSplit</div>
-                  <div class="mod-tag">B42 · SP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3799796873" target="_blank" rel="noopener" data-id="3799796873">
-                <img class="mod-thumb" src="img/xp-ranks.png" alt="XP Ranks" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">XP Ranks</div>
-                  <div class="mod-tag">B42 · SP/MP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3800957566" target="_blank" rel="noopener" data-id="3800957566">
-                <img class="mod-thumb" src="img/sidebar-drawer.png" alt="Sidebar Drawer" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">Sidebar Drawer</div>
-                  <div class="mod-tag">B42 · SP/MP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3820745827" target="_blank" rel="noopener" data-id="3820745827">
-                <img class="mod-thumb" src="img/livestock-traders.png" alt="Livestock Traders" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">Livestock Traders</div>
-                  <div class="mod-tag">B42 · SP/MP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-              <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=3822786582" target="_blank" rel="noopener" data-id="3822786582">
-                <img class="mod-thumb" src="img/gnc-starting-clothes.png" alt="GNC Starting Clothes" loading="lazy">
-                <div class="mod-body">
-                  <div class="mod-name">GNC Starting Clothes</div>
-                  <div class="mod-tag">B42 · SP/MP</div>
-                  <div class="mod-stats">
-                    <span class="stat" title="Unique Visitors"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 3a5 5 0 1 0 0 10A5 5 0 0 0 8 3zM1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8zm7-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg><span class="stat-val loading" data-stat="views"></span></span>
-                    <span class="stat" title="Subscribers"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-3.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5z"/></svg><span class="stat-val loading" data-stat="subs"></span></span>
-                    <span class="stat" title="Favourites"><svg width="10" height="10" viewBox="0 0 16 16" fill="#888888"><path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/></svg><span class="stat-val loading" data-stat="favs"></span></span>
-                  </div>
-                </div>
-              </a>
-            </div>
-
+            <div class="mod-grid" id="modGrid" style="display:none;"></div>
           </div>
         </div>
       </div>
@@ -1682,17 +1530,17 @@
               src="img/profile.svg"
               alt="GitHub Stats"
               style="width:100%;display:block;border-radius:8px;margin-top:10px;"
-              loading="eager">
+              loading="lazy">
             <img
               src="img/languages.svg"
               alt="Languages"
               style="width:100%;display:block;border-radius:8px;margin-top:10px;"
-              loading="eager">
+              loading="lazy">
             <img
               src="img/isocalendar.svg"
               alt="ObnoxiouslyNoxious GitHub contribution graph"
               style="width:100%;display:block;border-radius:8px;margin-top:10px;"
-              loading="eager">
+              loading="lazy">
           </div>
         </div>
       </div>
@@ -1978,7 +1826,7 @@
     </div>
 
     <div style="text-align:center;margin-top:80px;margin-bottom:0;">
-      <img src="img/obnox.png" alt="ObnoxiouslyNoxious" style="width:48px;height:48px;opacity:1.0;cursor:pointer;" onclick="openDashboard()">
+      <img class="footer-logo" src="img/obnox-icon-square.png" alt="ObnoxiouslyNoxious" onclick="openDashboard()">
     </div>
     <footer>
       <p><i>'ᴄᴏɢɪᴛᴏ ᴇʀɢᴏ ꜰᴏᴇᴛᴇᴏ'</i></p>
@@ -2062,6 +1910,68 @@
       }
     });
 
+    const THUMB_PARAMS = '?imw=320&imh=320&ima=fit&impolicy=Letterbox&letterbox=false';
+    const modGridEl = document.getElementById('modGrid');
+
+    const FADE_MS = 500;
+
+    function playThumb(wrap) {
+      const anim = wrap.dataset.anim;
+      if (!anim || wrap.dataset.playing === '1') return;
+      wrap.dataset.playing = '1';
+      clearTimeout(wrap.stopTimer);
+      const layer = wrap.querySelector('.mod-thumb-anim');
+      const pre = new Image();
+      pre.onload = () => {
+        if (wrap.dataset.playing !== '1') return;
+        layer.src = anim;
+        wrap.classList.add('playing');
+      };
+      pre.src = anim;
+    }
+
+    function stopThumb(wrap) {
+      if (wrap.dataset.playing !== '1') return;
+      wrap.dataset.playing = '';
+      wrap.classList.remove('playing');
+      wrap.stopTimer = setTimeout(() => {
+        if (wrap.dataset.playing !== '1') wrap.querySelector('.mod-thumb-anim').removeAttribute('src');
+      }, FADE_MS + 50);
+    }
+
+    function thumbOf(e) {
+      const card = e.target.closest('.mod-card');
+      return card ? { card, wrap: card.querySelector('.mod-thumb-wrap') } : null;
+    }
+
+    modGridEl.addEventListener('mouseover', e => {
+      const t = thumbOf(e);
+      if (t && t.wrap) playThumb(t.wrap);
+    });
+    modGridEl.addEventListener('mouseout', e => {
+      const t = thumbOf(e);
+      if (t && t.wrap && !t.card.contains(e.relatedTarget)) stopThumb(t.wrap);
+    });
+    modGridEl.addEventListener('focusin', e => {
+      const t = thumbOf(e);
+      if (t && t.wrap) playThumb(t.wrap);
+    });
+    modGridEl.addEventListener('focusout', e => {
+      const t = thumbOf(e);
+      if (t && t.wrap && !t.card.contains(e.relatedTarget)) stopThumb(t.wrap);
+    });
+
+    function watchThumbsForTouch() {
+      if (!window.matchMedia('(hover: none)').matches || !('IntersectionObserver' in window)) return;
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) playThumb(entry.target);
+          else stopThumb(entry.target);
+        });
+      }, { rootMargin: '-40% 0px -40% 0px' });
+      modGridEl.querySelectorAll('.mod-thumb-wrap').forEach(w => io.observe(w));
+    }
+
     async function fetchMods() {
       try {
         const res  = await fetch(WORKER_URL + '/mods');
@@ -2095,16 +2005,17 @@
         totalSubs += parseInt(mod.subscriptions ?? 0, 10);
         totalFavs += parseInt(mod.favorited ?? 0, 10);
         totalLikes += parseInt(mod.votes_up ?? 0, 10);
-        const localFallback = 'img/' + slugify(mod.id) + '.png';
-        const localFallbackAbs = new URL(localFallback, location.href).href;
-        const thumbSrc = mod.preview_url || localFallback;
+        const still = 'img/' + abbrFor(mod.id) + '.png';
+        const anim = mod.preview_url ? mod.preview_url + THUMB_PARAMS : '';
         const rating = starRating(mod.votes_up, mod.votes_down);
         const parsed = parseModTitle(mod.name);
         const cardName = CARD_NAME_OVERRIDES[mod.id] || parsed.name;
         return `
           <a class="mod-card" href="https://steamcommunity.com/sharedfiles/filedetails/?id=${mod.id}" target="_blank" rel="noopener">
-            <img class="mod-thumb" src="${thumbSrc}" alt="${mod.name}" data-fallback="${localFallbackAbs}"
-                 loading="lazy" onerror="if(!this.dataset.triedFallback&&this.src!==this.dataset.fallback){this.dataset.triedFallback='1';this.src=this.dataset.fallback}else{this.onerror=null;this.style.background='#212121';this.removeAttribute('src')}">
+            <div class="mod-thumb-wrap" data-anim="${anim}">
+              <img class="mod-thumb" src="${still}" alt="${mod.name}" width="320" height="320" loading="lazy" decoding="async" onerror="this.onerror=null;this.style.background='#212121';this.removeAttribute('src')">
+              <img class="mod-thumb-anim" alt="" aria-hidden="true" width="320" height="320" decoding="async">
+            </div>
             <div class="mod-body">
               <div class="mod-name">${cardName}</div>
               <div class="mod-stars" title="Steam star rating (${rating.total} ratings${rating.rated ? '' : ', needs 25 to be rated'})">${starsHTML(rating)}</div>
@@ -2132,6 +2043,7 @@
 
       loading.style.display = 'none';
       grid.style.display    = 'grid';
+      watchThumbsForTouch();
 
       if (awardsBar && awardsCount && totalAwards > 0) {
         awardsCount.textContent = totalAwards;
@@ -2149,27 +2061,27 @@
     }
 
     
-    const ID_TO_SLUG = {
-      '3737205872': 'auto-drink',
-      '3792887660': 'auto-drink-expanded',
-      '3792888505': 'auto-drunk',
-      '3736268686': 'skill-master',
-      '3733578471': 'aebs',
-      '3730705272': 'random-spawn',
-      '3728443049': 'smokes',
-      '3728283972': 'ammo',
-      '3728275018': 'money',
-      '3752111970': 'dcs',
-      '3759853561': 'npc',
-      '3795485367': 'deadsplit',
-      '3799796873': 'xp-ranks',
-      '3800957566': 'sidebar-drawer',
-      '3820745827': 'livestock-traders',
-      '3822786582': 'gnc-starting-clothes',
+    const ID_TO_ABBR = {
+      '3728275018': 'ZHM',
+      '3737205872': 'ADR',
+      '3730705272': 'RSL',
+      '3752111970': 'DCS',
+      '3728443049': 'ZHS',
+      '3759853561': 'NPC',
+      '3792887660': 'ADE',
+      '3733578471': 'AEBS',
+      '3728283972': 'ZHA',
+      '3736268686': 'SM',
+      '3799796873': 'XPR',
+      '3800957566': 'SBD',
+      '3792888505': 'AD',
+      '3820745827': 'LST',
+      '3795485367': 'DSP',
+      '3822786582': 'GNCSC',
     };
 
-    function slugify(id) {
-      return ID_TO_SLUG[id] ?? 'unknown';
+    function abbrFor(id) {
+      return ID_TO_ABBR[id] ?? 'unknown';
     }
 
     const aboutWrapper = document.getElementById('aboutWrapper');
