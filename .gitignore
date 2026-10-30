@@ -3,3 +3,5 @@
 !json/supporters.js
 
 /drafts
+__pycache__/
+*.pyc
