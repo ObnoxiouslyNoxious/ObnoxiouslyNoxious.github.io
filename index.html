@@ -1893,9 +1893,9 @@
     }
 
     function parseModTitle(raw) {
-      const m = String(raw || '').match(/^\s*\[([^\]]+)\]\s*(.*?)\s*\[([^\]]+)\]\s*$/);
+      const m = String(raw || '').match(/^\s*\[([^\]]+)\]\s*(.*?)\s*(?:\[([^\]]+)\])?\s*$/);
       if (!m) return { tag: null, name: raw, topology: null };
-      return { tag: m[1], name: m[2], topology: m[3] };
+      return { tag: m[1], name: m[2], topology: m[3] || null };
     }
 
     const CARD_NAME_OVERRIDES = {
