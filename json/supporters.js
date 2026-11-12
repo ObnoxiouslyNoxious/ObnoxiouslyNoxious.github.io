@@ -8,6 +8,10 @@ window.SUPPORTERS_DATA = {
   },
   "recent": [
     {
+      "name": "Kosh",
+      "amount": "$10.00"
+    },
+    {
       "name": "Beornvig",
       "amount": "$10.00"
     },
