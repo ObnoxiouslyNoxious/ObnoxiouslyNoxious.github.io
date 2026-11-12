@@ -18,6 +18,10 @@
   <meta name="twitter:title" content="ObnoxiouslyNoxious">
   <meta name="twitter:description" content="Pungent Stench, Potent Code">
   <meta name="twitter:image" content="https://obnox.dev/img/obnox-share.png">
+  <link rel="preload" as="image" href="img/InkRollHover.png">
+  <link rel="preload" as="image" href="img/InkRollHoverFlip.png">
+  <link rel="preload" as="image" href="img/InkRollInnerHover.png">
+  <link rel="preload" as="image" href="img/InkRollInnerSteamHover.png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1425,9 +1429,174 @@
       font-size: 12px;
       color: #555555;
     }
+    :root {
+      --ink-slice: 55;
+      --ink-bw: 26px;
+      --ink-slice-in: 25;
+      --ink-bw-in: max(8px, calc(var(--ink-bw) * 0.4));
+    }
+
+    .about-card-wrapper, .steam-card-wrapper, .gh-card-wrapper, .br-card-wrapper,
+    .pz-card-wrapper, .contact-card-wrapper, .support-card-wrapper,
+    .partners-card-wrapper, .impact-card-wrapper {
+      border: var(--ink-bw) solid transparent;
+      border-radius: 0;
+      border-image: url("img/InkRoll.png") var(--ink-slice) fill / var(--ink-bw) stretch;
+      background: none;
+    }
+
+    .about-toggle, .steam-toggle, .gh-toggle, .br-toggle, .pz-toggle,
+    .contact-toggle, .support-toggle, .partners-toggle, .impact-toggle {
+      background: none;
+      padding: 8px 14px;
+      border-radius: 0;
+    }
+
+    .about-toggle:hover, .steam-toggle:hover, .gh-toggle:hover, .br-toggle:hover,
+    .pz-toggle:hover, .contact-toggle:hover, .support-toggle:hover,
+    .partners-toggle:hover, .impact-toggle:hover {
+      background: none;
+    }
+
+    .about-card-wrapper:has(> .about-toggle:hover),
+    .steam-card-wrapper:has(> .steam-toggle:hover),
+    .gh-card-wrapper:has(> .gh-toggle:hover),
+    .br-card-wrapper:has(> .br-toggle:hover),
+    .pz-card-wrapper:has(> .pz-toggle:hover),
+    .contact-card-wrapper:has(> .contact-toggle:hover),
+    .support-card-wrapper:has(> .support-toggle:hover),
+    .partners-card-wrapper:has(> .partners-toggle:hover),
+    .impact-card-wrapper:has(> .impact-toggle:hover) {
+      border-image-source: url("img/InkRollHover.png");
+    }
+
+    [class*="-card-wrapper"].ink-flip {
+      border-image-source: url("img/InkRollFlip.png");
+    }
+
+    [class*="-card-wrapper"].ink-flip:has(> [class$="-toggle"]:hover) {
+      border-image-source: url("img/InkRollHoverFlip.png");
+    }
+
+    .gh-panel, .mod-panel, .about-panel, .contact-panel, .partners-panel,
+    .impact-panel, .support-panel, .pz-panel, .br-panel {
+      background: none;
+      border-top: 0;
+    }
+
+    .gh-profile-link, .gh-profile-link:hover, .workshop-link, .workshop-link:hover,
+    .gh-event, .contact-link, .contact-link:hover, .support-link, .support-link:hover,
+    .pz-link, .pz-link:hover, .kofi-sub-wrapper, .kofi-sub-wrapper.open,
+    .mod-card, .mod-card:hover, .mod-skeleton, .stats-bar, .partners-disclaimer,
+    .partners-banner-link, .br-mod-preview, .br-submit-btn, .br-submit-btn:hover:not(:disabled),
+    .br-select, .br-input, .br-textarea,
+    .br-select:focus, .br-input:focus, .br-textarea:focus {
+      border: var(--ink-bw-in) solid transparent;
+      border-radius: 0;
+      border-image: url("img/InkRollInner.png") var(--ink-slice-in) fill / var(--ink-bw-in) stretch;
+      background: none;
+    }
+
+    .awards-bar {
+      border: var(--ink-bw-in) solid transparent;
+      border-radius: 0;
+      border-image: url("img/InkRollInnerGold.png") var(--ink-slice-in) fill / var(--ink-bw-in) stretch;
+      background: none;
+    }
+
+    .br-steam-btn, .br-steam-btn:hover {
+      border: var(--ink-bw-in) solid transparent;
+      border-radius: 0;
+      border-image: url("img/InkRollInnerSteam.png") var(--ink-slice-in) fill / var(--ink-bw-in) stretch;
+      background: none;
+    }
+
+    .gh-profile-link:hover, .workshop-link:hover, .contact-link:hover, .support-link:hover,
+    .pz-link:hover, .mod-card:hover, .br-submit-btn:hover:not(:disabled),
+    .br-select:hover, .br-input:hover, .br-textarea:hover,
+    .br-select:focus, .br-input:focus, .br-textarea:focus {
+      border-image-source: url("img/InkRollInnerHover.png");
+    }
+
+    .br-steam-btn:hover:not(:disabled) {
+      border-image-source: url("img/InkRollInnerSteamHover.png");
+    }
+
+    .gh-profile-link, .workshop-link, .gh-event, .contact-link, .support-link, .pz-link,
+    .stats-bar, .awards-bar, .partners-disclaimer, .br-mod-preview, .br-steam-btn,
+    .br-submit-btn, .br-select, .br-input, .br-textarea {
+      padding: 2px 6px;
+    }
+
+    .partners-banner-link {
+      padding: 0;
+    }
+
+    .partners-banner-link img {
+      border-radius: 0;
+    }
+
+    .br-input[type="file"] {
+      padding: 2px 6px;
+    }
+
+    .site-bg {
+      position: fixed;
+      inset: -8%;
+      z-index: -2;
+      background: url("img/site_bg_2560.webp") center / cover no-repeat;
+      pointer-events: none;
+      will-change: transform;
+      transform-origin: 50% 50%;
+      animation: bg-zoom 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes bg-zoom {
+      from { transform: scale(1); }
+      to   { transform: scale(1.02); }
+    }
+
+    @media (max-width: 900px) {
+      .site-bg { background-image: url("img/site_bg_1600.webp"); }
+    }
+
+    .icon {
+      border: 0;
+      border-radius: 0;
+      background: url("img/InkRollIconCircle.png") center / 100% 100% no-repeat !important;
+    }
+
+    .br-select {
+      color-scheme: dark;
+    }
+
+    .br-select option, .br-select optgroup {
+      background-color: #161616;
+      color: #e0e0e0;
+    }
+
+    .br-select:disabled {
+      opacity: 1;
+      color: #888888;
+    }
+
+    .kofi-sub-toggle, .kofi-sub-toggle:hover {
+      background: none;
+      padding: 2px 6px;
+    }
+
+    .kofi-sub-panel {
+      background: none;
+    }
   </style>
 </head>
 <body>
+
+  <div class="site-bg"></div>
+  <script>
+    document.querySelector('.site-bg').style.transformOrigin =
+      (Math.random() * 100).toFixed(1) + '% ' + (Math.random() * 100).toFixed(1) + '%';
+  </script>
 
   <div class="container">
 
@@ -2535,5 +2704,40 @@
       </div>
     </div>
   </div>
+<script>
+  (function () {
+    var MAX_EDGE = 30;
+    var MIN_EDGE = 12;
+    var root = document.documentElement;
+    var ctx = document.createElement('canvas').getContext('2d');
+
+    function fitInkEdge() {
+      var container = document.querySelector('.container');
+      var heads = document.querySelectorAll('[class*="-card-wrapper"] > [class$="-toggle"]');
+      var need = 0;
+      for (var i = 0; i < heads.length; i++) {
+        var head = heads[i];
+        var title = head.querySelector('.card-title');
+        var text = head.querySelector('.card-text');
+        if (!title || !text || head.clientWidth === 0) continue;
+        var cs = getComputedStyle(title);
+        ctx.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+        var width = ctx.measureText(title.textContent).width;
+        need = Math.max(need, width + (head.clientWidth - text.clientWidth));
+      }
+      var edge = Math.floor((container.clientWidth - need) / 2);
+      edge = Math.max(MIN_EDGE, Math.min(MAX_EDGE, edge));
+      root.style.setProperty('--ink-bw', edge + 'px');
+    }
+
+    var cards = document.querySelectorAll('[class*="-card-wrapper"]');
+    for (var c = 1; c < cards.length; c += 2) cards[c].classList.add('ink-flip');
+
+    window.addEventListener('load', fitInkEdge);
+    window.addEventListener('resize', fitInkEdge);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitInkEdge);
+    fitInkEdge();
+  })();
+</script>
 </body>
 </html>
