@@ -8,20 +8,16 @@ window.SUPPORTERS_DATA = {
   },
   "recent": [
     {
-      "name": "Kosh",
-      "amount": "$10.00"
+      "name": "Kosh"
     },
     {
-      "name": "Beornvig",
-      "amount": "$10.00"
+      "name": "Beornvig"
     },
     {
-      "name": "PotatoHead",
-      "amount": "$2.00"
+      "name": "PotatoHead"
     },
     {
-      "name": "iDestin",
-      "amount": "$50.00"
+      "name": "iDestin"
     }
   ]
 };
