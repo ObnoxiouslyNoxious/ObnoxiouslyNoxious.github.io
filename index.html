@@ -113,36 +113,43 @@
 
     .header {
       position: relative;
-      isolation: isolate;
       text-align: center;
       margin-bottom: 2.5rem;
-      padding: 6px 0 22px;
+      padding: 6px 0 0;
     }
 
     .footer-block {
       position: relative;
-      isolation: isolate;
       margin-top: 80px;
-      padding: 18px 0 16px;
+      padding: 18px 0 0;
     }
 
-    .header::before, .footer-block::before {
+    .ink-strip {
+      position: relative;
+      isolation: isolate;
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: calc(var(--ink-bw) - 0.6em) calc(var(--ink-bw) * 1.6);
+    }
+
+    .ink-strip::before {
       content: "";
       position: absolute;
       inset: 0;
       z-index: -1;
       border: var(--ink-bw) solid transparent;
       border-image: url("img/InkRoll.png") var(--ink-slice) fill / var(--ink-bw) stretch;
+      transform: scaleX(-1);
       pointer-events: none;
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.03) 10%, rgba(0, 0, 0, 0.12) 18%, rgba(0, 0, 0, 0.35) 25%, rgba(0, 0, 0, 0.7) 30%, #000 34%, #000 66%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0.35) 75%, rgba(0, 0, 0, 0.12) 82%, rgba(0, 0, 0, 0.03) 90%, transparent 100%);
-      mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.03) 10%, rgba(0, 0, 0, 0.12) 18%, rgba(0, 0, 0, 0.35) 25%, rgba(0, 0, 0, 0.7) 30%, #000 34%, #000 66%, rgba(0, 0, 0, 0.7) 70%, rgba(0, 0, 0, 0.35) 75%, rgba(0, 0, 0, 0.12) 82%, rgba(0, 0, 0, 0.03) 90%, transparent 100%);
     }
 
     .header-logo {
       display: block;
-      width: 126px;
-      height: 126px;
-      margin: 0 auto -6px;
+      width: 140px;
+      height: 140px;
+      margin: 0 auto 10px;
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 26px rgba(255, 255, 255, 0.35));
     }
 
     .avatar {
@@ -1891,8 +1898,8 @@
   <div class="container">
 
     <div class="header">
-      <img class="header-logo" src="img/banner-logo.webp" alt="ObnoxiouslyNoxious" width="126" height="126">
-      <p><i>'Pungent Stench, Potent Code'</i></p>
+      <img class="header-logo" src="img/header-squircle.webp" alt="ObnoxiouslyNoxious" width="140" height="140">
+      <p class="ink-strip"><i>'Pungent Stench, Potent Code'</i></p>
     </div>
 
     <div class="about-card-wrapper" id="aboutWrapper">
@@ -2293,7 +2300,7 @@
       <div style="text-align:center;margin-bottom:0;">
         <img class="footer-logo" src="img/obnox-fly-footer.webp" alt="ObnoxiouslyNoxious" onclick="openDashboard()">
       </div>
-      <footer>
+      <footer class="ink-strip">
         <p><i>'COGITO ERGO FOETEO'</i></p>
         <p style="font-size:calc(10px * var(--fs));color:#aaaaaa;margin-top:4px;">UNIQUE VISITORS: <span id="visitor-count">...</span></p>
       </footer>
