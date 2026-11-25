@@ -1,6 +1,7 @@
 *.md
 *.js
 !json/supporters.js
+!MenuThemeBuilder/js/*.js
 
 /drafts
 __pycache__/
