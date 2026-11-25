@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Theme Builder</title>
+  <meta name="description" content="Build a Menu Theme compatible with Menu Theme Framework (Project Zomboid Build 42).">
+  <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="../img/favicon-48.png">
+  <link rel="stylesheet" href="css/builder.css">
+</head>
+<body>
+  <header class="top ink">
+    <span class="home">Menu Theme Framework</span>
+    <h1>Menu Theme Builder</h1>
+    <p class="version">Version <span id="builder-version"></span></p>
+    <p class="header-links"><button type="button" id="changelog-btn" class="ink-btn">Changelog</button> <button type="button" id="help-btn" class="ink-btn">Help</button></p>
+    <p>Build a Menu Theme Framework compatible Main Menu Theme.</p>
+    <p>This Tool runs in your Browser. All uploaded Files stay on your Computer.</p>
+    <p class="header-notice"><strong>NOTICE:</strong> Menu Theme Framework and the Menu Theme Builder are in Active Development. New Features are constantly being added to both. <br>MTF Compatibility with Themes built on older versions is always aimed for, but never guaranteed.</p>
+  </header>
+
+  <div class="toolbar">
+    <button type="button" id="new">New</button>
+    <button type="button" id="open">Open built zip…</button>
+    <input type="file" id="zip-input" accept=".zip,application/zip" hidden>
+    <button type="button" id="build" class="primary">Build mod (.zip)</button>
+    <span id="progress" class="progress" hidden></span>
+  </div>
+
+  <div id="notice" class="notice" hidden></div>
+  <div id="status" class="status" aria-live="polite"></div>
+  <div id="result" class="result-box ink" hidden></div>
+
+  <main class="layout">
+    <section class="editor ink">
+      <div id="tabbar" class="tabbar" role="tablist"></div>
+      <div id="panels"></div>
+    </section>
+
+    <aside class="preview-panel ink">
+      <div class="preview-head">
+        <h2>Preview</h2>
+        <label class="check"><input type="checkbox" id="grid"><span>Grid</span></label>
+        <label class="inline">Layout <select id="layout-select"></select></label>
+        <button type="button" id="prev" title="Previous background">◀</button>
+        <button type="button" id="next" title="Next background">▶</button>
+      </div>
+      <canvas id="canvas" class="preview-canvas"></canvas>
+      <p id="preview-info" class="note"></p>
+      <p class="note">Approximate preview. The real positions, sizes and animations are drawn by Menu Theme Framework in-game.</p>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    <p>Based on the Menu Theme Builder Desktop Tool, provided by <a href="https://github.com/JFlowersB">JFlowersB</a> (MIT License).</p>
+    <p>Source: <a href="https://github.com/NoxMods/MenuThemeBuilder">NoxMods/MenuThemeBuilder</a>.</p>
+  </footer>
+
+  <dialog id="changelog-dialog" class="changelog"></dialog>
+  <dialog id="help-dialog" class="changelog"></dialog>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
